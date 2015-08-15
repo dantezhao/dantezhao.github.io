@@ -24,7 +24,7 @@ excerpt: Java Java传值 Java传引用
 
 ####程序
 
-{% highlight java %}
+~~~java
 	@Test
 	public void passInt(){		
 		int testInt = 0;
@@ -37,17 +37,17 @@ excerpt: Java Java传值 Java传引用
 		i = 5;
 		System.out.println("In operation, testInt is : " + i);
 	}
-{% endhighlight %}
+~~~
 
 ####结果
 
-```
+~~~
 Before operation, testInt is : 0
 
 In operation, testInt is : 5
 
 After operation, testInt is : 0
-```
+~~~
 
 ####总结
 
@@ -59,7 +59,7 @@ After operation, testInt is : 0
 
 ####代码
 
-{% highlight java %}
+~~~java
 	@Test
 	public void passClass(){
 		Person person = new Person(175,140);
@@ -94,17 +94,17 @@ After operation, testInt is : 0
 		}
 	}
 	
-{% endhighlight %}
+~~~
 
 ####结果
 
-```
+~~~
 Before classOperation, the person height is 175 and the weight is 140
 
 In classOperation, the person height is 190 and the weight is 160
 
 After classOperation, the person height is 190 and the weight is 160
-```
+~~~
 
 
 ####总结
@@ -122,7 +122,7 @@ After classOperation, the person height is 190 and the weight is 160
 
 ####代码
 
-{% highlight java %}
+~~~java
 	@Test
 	public void passString(){
 		String testString = "Hello";
@@ -136,18 +136,17 @@ After classOperation, the person height is 190 and the weight is 160
 		s = "World";
 		System.out.println("In operation, testString is : " + s);
 	}
-{% endhighlight %}
+~~~
 
 ####结果
 
-```
+~~~
 Before operation, testString is : Hello
 
 In operation, testString is : World
 
 After operation, testString is : Hello
-
-```
+~~~
 
 ####总结
 
@@ -165,7 +164,7 @@ String类型也是对象型类型，所以它是传引用副本。
 
 ####代码
 
-{% highlight java %}
+~~~java
 	@Test
 	public void passString(){
 		String testString = new String("Hello");
@@ -179,18 +178,18 @@ String类型也是对象型类型，所以它是传引用副本。
 		s = new String("World");
 		System.out.println("In operation, testString is : " + s);
 	}
-{% endhighlight %}
+~~~
 
 ####输出
 
-```
+~~~
 Before operation, testString is : Hello
 
 In operation, testString is : World
 
 After operation, testString is : Hello
 
-```
+~~~
 
 ####总结
 
@@ -200,8 +199,8 @@ After operation, testString is : Hello
 
 ####代码
 
-{% highlight java %}
-public class Person{
+~~~java
+	public class Person{
 		
 		int height;
 		int weight;
@@ -234,17 +233,17 @@ public class Person{
 				" and the weight is " + person.weight);
 		
 	}
-{% endhighlight %}
+~~~
 
 ####结果
 
-```
+~~~
 Before classOperation, the person height is 175 and the weight is 140
 
 In classOperation, the person height is 190 and the weight is 160
 
 After classOperation, the person height is 175 and the weight is 140
-```
+~~~
 
 ####总结
 
