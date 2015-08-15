@@ -34,10 +34,6 @@ layout: default
 
 		
 		<br />
-		
-	
-		
-		
 			<!--{% for post in site.posts %}
 			  <li class="listing">
 				<hr class="slender">
@@ -86,7 +82,9 @@ layout: default
       {% endfor %}
     </div>
   </div>
-<!-- 分页测试 -->
+  </div>
+  
+  <!-- 分页测试 -->
 		<div class="pagination pagination-right"> 
 			<span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span> 
 			<a href="/">第一页</a> 
@@ -114,5 +112,4 @@ layout: default
 			{% endif %} 
 			<a href="/page{{paginator.total_pages}}">最后一页</a> 
 		</div>
-  </div>
 
