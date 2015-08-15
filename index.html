@@ -33,8 +33,7 @@ layout: default
           {% endfor %}
 		
 		<!-- 分页测试 -->
-		<div class="pagination pagination-right"> 
-			<nav id="navbar" class="navbar-fixed-bottom">
+		<div class="divcss5-right"> 
 			<span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span> 
 			<a href="/">第一页</a> 
 			{% if paginator.previous_page %} 
@@ -60,41 +59,11 @@ layout: default
 			<span> Next >> </span> 
 			{% endif %} 
 			<a href="/page{{paginator.total_pages}}">最后一页</a> 
-			</nav>
 		</div>
 		
 		<br />
 		
-		<div class="pagination pagination-right"> 
-			<ul>
-			<li><span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span></li>
-			<li><a href="/">第一页</a></li> 
-			{% if paginator.previous_page %} 
-			{% if paginator.previous_page == 1 %} 
-			<li><a href="/" class="current"> << Prev </a></li> 
-			{% else %} 
-			<li><a href="/page{{paginator.previous_page}}"> << Prev </a></li> 
-			{% endif %} 
-			{% else %} 
-			<li><span> << Prev </span></li> 
-			{% endif %} 
-			{% for count in (1..paginator.total_pages) limit:8 %} 
-			{% if count == paginator.page %} 
-			<li><span class="current-page">{{count}}</span></li> 
-			{% else %} 
-			<li><a href="/page{{count}}">{{count}}</a></li> 
-			{% endif %} 
-			{% endfor %} 
-
-			{% if paginator.next_page %} 
-			<li><a href="/page{{paginator.next_page}}"> Next >> </a></li> 
-			{% else %} 
-			<li><span> Next >> </span></li> 
-			{% endif %} 
-			<li><a href="/page{{paginator.total_pages}}">最后一页</a></li> 
-			</ul>
-		</div>
-		
+	
 		
 		
 			<!--{% for post in site.posts %}
