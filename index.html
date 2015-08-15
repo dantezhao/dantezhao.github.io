@@ -112,43 +112,49 @@ layout: default
 			{% endif %} 
 			<a href="/page{{paginator.total_pages}}">最后一页</a> 
 		</div>
-		
-		<div class="pagination">
-		  <ul>
-			<li><a href="#">Prev</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">Next</a></li>
-		  </ul>
-		</div>
 
 <br />
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
+		<span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span>
 			<ul class="pagination">
 				<li>
-					<a href="#">Prev</a>
+					<a href="/">第一页</a>
 				</li>
+				{% if paginator.previous_page %} 
+				{% if paginator.previous_page == 1 %} 
 				<li>
-					<a href="#">1</a>
+					<a href="/" class="current"> <<前一页 </a> 
 				</li>
+				{% else %}
 				<li>
-					<a href="#">2</a>
+					<a href="/page{{paginator.previous_page}}"> <<前一页 </a>
 				</li>
+				{% endif %} 
+				{% else %}
 				<li>
-					<a href="#">3</a>
+					<span> <<前一页 </span>
 				</li>
+				{% endif %} 
+				{% for count in (1..paginator.total_pages) limit:8 %} 
+				{% if count == paginator.page %}
 				<li>
-					<a href="#">4</a>
+					<span class="current-page">{{count}}</span>
 				</li>
+				{% endif %} 
+				{% endfor %} 
+				{% if paginator.next_page %}
 				<li>
-					<a href="#">5</a>
+					<a href="/page{{paginator.next_page}}"> 后一页>> </a> 
 				</li>
+				{% else %}
 				<li>
-					<a href="#">Next</a>
+					<span> 后一页>> </span>
+				</li>
+				{% endif %} 
+				<li>
+				<a href="/page{{paginator.total_pages}}">最后一页</a> 
 				</li>
 			</ul>
 		</div>
