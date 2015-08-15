@@ -24,9 +24,9 @@
           <li>
         {% endif %}
           
-		<a href="{{ site.baseurl }}/blogs.html"><span class="glyphicon glyphicon-th-large"></span> Blog</a></li>
-        遍历pages里面的文件
-		{% for p in site.pages %}
+		<a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-th-large"></span> Blog</a></li>
+
+        {% for p in site.pages %}
           {% if p.title %}
             {% if p.url == page.url %}
               <li class="active">
