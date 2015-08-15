@@ -18,10 +18,10 @@ layout: default
 	  <a class="page-next" href="{{paginator.next_page_path}}">next page</a> 
 	  </div>
 	  -->
-	  <ul class="pager">
+	  <ul class="pagination">
         {% if page.previous.url %}
         <li class="previous">
-            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}"> Previous Post</a>
+            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
         </li>
         {% endif %}
         {% if page.next.url %}
