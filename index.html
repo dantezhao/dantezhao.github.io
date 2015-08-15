@@ -32,8 +32,59 @@ layout: default
 			<!--<p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>-->
           {% endfor %}
 
+		<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
 		
-		<br />
+			<ul class="pagination pagination-right">
+				<li>
+					<span class="page_number">{{paginator.page}}/{{paginator.total_pages}}</span>
+				</li>
+				<li>
+					<a href="/">first</a>
+				</li>
+				{% if paginator.previous_page %} 
+				{% if paginator.previous_page == 1 %} 
+				<li>
+					<a href="/" class="current"> prev </a> 
+				</li>
+				{% else %}
+				<li>
+					<a href="/page{{paginator.previous_page}}"> prev </a>
+				</li>
+				{% endif %} 
+				{% else %}
+				<li class="disabled">
+					<span> prev </span>
+				</li>
+				{% endif %} 
+				{% for count in (1..paginator.total_pages) limit:8 %} 
+				{% if count == paginator.page %}
+				<li class="disabled">
+					<span class="current-page">{{count}}</span>
+				</li>
+				{% else %} 
+				<li>
+				<a href="/page{{count}}">{{count}}</a>
+				</li>
+				{% endif %} 
+				{% endfor %} 
+				{% if paginator.next_page %}
+				<li>
+					<a href="/page{{paginator.next_page}}"> next </a> 
+				</li>
+				{% else %}
+				<li class="disabled">
+					<span> next </span>
+				</li>
+				{% endif %} 
+				<li>
+				<a href="/page{{paginator.total_pages}}">last</a> 
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 			<!--{% for post in site.posts %}
 			  <li class="listing">
 				<hr class="slender">
@@ -113,59 +164,7 @@ layout: default
 			<a href="/page{{paginator.total_pages}}">最后一页</a> 
 		</div>
 	分页测试 -->
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-		
-			<ul class="pagination pagination-right">
-				<li>
-					<span class="page_number">{{paginator.page}}/{{paginator.total_pages}}</span>
-				</li>
-				<li>
-					<a href="/">first</a>
-				</li>
-				{% if paginator.previous_page %} 
-				{% if paginator.previous_page == 1 %} 
-				<li>
-					<a href="/" class="current"> prev </a> 
-				</li>
-				{% else %}
-				<li>
-					<a href="/page{{paginator.previous_page}}"> prev </a>
-				</li>
-				{% endif %} 
-				{% else %}
-				<li class="disabled">
-					<span> prev </span>
-				</li>
-				{% endif %} 
-				{% for count in (1..paginator.total_pages) limit:8 %} 
-				{% if count == paginator.page %}
-				<li class="disabled">
-					<span class="current-page">{{count}}</span>
-				</li>
-				{% else %} 
-				<li>
-				<a href="/page{{count}}">{{count}}</a>
-				</li>
-				{% endif %} 
-				{% endfor %} 
-				{% if paginator.next_page %}
-				<li>
-					<a href="/page{{paginator.next_page}}"> next </a> 
-				</li>
-				{% else %}
-				<li class="disabled">
-					<span> next </span>
-				</li>
-				{% endif %} 
-				<li>
-				<a href="/page{{paginator.total_pages}}">last</a> 
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
+
 		
 
     <script src="static/js/jquery.min.js"></script>
