@@ -29,52 +29,35 @@ layout: default
           {% endfor %}
 		
 		<!-- 分页测试 -->
-		<div id="post-pagination" class="pagination">
-		  {% if paginator.previous_page %}
-			<p class="previous">
-			  {% if paginator.previous_page == 1 %}
-				<a href="/">Previous</a>
-			  {% else %}
-				<a href="{{ paginator.previous_page_path }}">Previous</a>
-			  {% endif %}
-			</p>
-		  {% else %}
-			<p class="previous disabled">
-			  <span>Previous</span>
-			</p>
-		  {% endif %}
+		<div id="pagination"> 
+<div class="pagenavi"> 
+<span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span> 
+<a href="/">第一页</a> 
+{% if paginator.previous_page %} 
+{% if paginator.previous_page == 1 %} 
+<a href="/" class="current"><<前一页</a> 
+{% else %} 
+<a href="/page{{paginator.previous_page}}"><<前一页</a> 
+{% endif %} 
+{% else %} 
+<span><<前一页</span> 
+{% endif %} 
+{% for count in (2..paginator.total_pages) limit:8 %} 
+{% if count == paginator.page %} 
+<span class="current-page">{{count}}</span> 
+{% else %} 
+<a href="/page{{count}}">{{count}}</a> 
+{% endif %} 
+{% endfor %} 
 
-		  <ul class="pages">
-			<li class="page">
-			  {% if paginator.page == 1 %}
-				<span class="current-page">1</span>
-			  {% else %}
-				<a href="/">1</a>
-			  {% endif %}
-			</li>
-
-			{% for count in (2..paginator.total_pages) %}
-			  <li class="page">
-				{% if count == paginator.page %}
-				  <span class="current-page">{{ count }}</span>
-				{% else %}
-				  <a href="/page{{ count }}">{{ count }}</a>
-				{% endif %}
-			  </li>
-			{% endfor %}
-		  </ul>
-
-		  {% if paginator.next_page %}
-			<p class="next">
-			  <a href="{{ paginator.next_page_path }}">Next</a>
-			</p>
-		  {% else %}
-			<p class="next disabled">
-			  <span>Next</span>
-			</p>
-		  {% endif %}
-
-		</div>
+{% if paginator.next_page %} 
+<a href="/page{{paginator.next_page}}">后一页>></a> 
+{% else %} 
+<span>后一页>></span> 
+{% endif %} 
+<a href="/page{{paginator.total_pages}}">最后一页</a> 
+</div> 
+</div>
 			<!--{% for post in site.posts %}
 			  <li class="listing">
 				<hr class="slender">
