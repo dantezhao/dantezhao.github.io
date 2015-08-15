@@ -1,0 +1,12 @@
+# Site settings
+title: PRAIRIE
+email: zhaodedong91@gmail.com
+description: 赵德栋的博客
+
+github_username: zhaodedong
+permalink: /:year/:month/:day/:title/
+
+# Build settings
+markdown: kramdown
+
+

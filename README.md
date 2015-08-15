@@ -1,2 +1,1 @@
-# zhaodedong.github.io
-blog
+readme
