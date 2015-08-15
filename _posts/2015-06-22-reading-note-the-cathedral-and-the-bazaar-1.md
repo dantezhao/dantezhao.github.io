@@ -2,8 +2,6 @@
 layout: post
 title:  "读书笔记：《大教堂与集市》之一"
 date:   2015-06-22
-categories: Reading
-excerpt: 读书笔记 大教堂与集市读书笔记
 ---
 
 

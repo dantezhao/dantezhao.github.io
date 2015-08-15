@@ -3,7 +3,6 @@ layout: post
 title:  "The Data Revolution Speaker（Hadoop之父Doug Cutting在清华的讲座）"
 date:   2014-12-12 20:14:50
 categories: Meeting
-excerpt: Meeting DougCutting Bigdata Hadoop
 ---
 
 ##The Data Revolution Speaker 讲座记录

@@ -3,7 +3,6 @@ layout: post
 title:  "Docker：初步使用"
 date:   2015-06-19 20:14:50
 categories: Docker
-excerpt: Docker
 ---
 
 #写在前面

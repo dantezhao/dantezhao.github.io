@@ -3,7 +3,6 @@ layout: post
 title:  "Java：详解传值和传引用"
 date:   2015-08-11 19:14:50
 categories: Java
-excerpt: Java Java传值 Java传引用
 ---
 
 ##传值和传引用

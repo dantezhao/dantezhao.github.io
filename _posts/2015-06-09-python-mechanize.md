@@ -3,7 +3,6 @@ layout: post
 title:  "Python：Mechanize模拟浏览器行为"
 date:   2015-06-09 22:51:50
 categories: Python
-excerpt: Python mechanize 模拟浏览器行为
 ---
 
 ##使用Mechanize模拟浏览器行为

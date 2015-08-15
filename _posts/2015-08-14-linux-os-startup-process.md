@@ -3,7 +3,6 @@ layout: post
 title:  "Linux：系统启动引导过程"
 date:   2015-08-14 22:14:54
 categories: Linux
-excerpt: Linux Linux系统启动流程 
 ---
 
 

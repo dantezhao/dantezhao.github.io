@@ -3,7 +3,6 @@ layout: post
 title:  "Linux：常用命令总结"
 date:   2015-08-11
 categories: Linux
-excerpt: Linux Linux常用命令总结
 ---
 
 ##常用命令总结
