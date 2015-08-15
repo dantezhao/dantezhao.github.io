@@ -18,7 +18,7 @@ layout: default
 	  <a class="page-next" href="{{paginator.next_page_path}}">next page</a> 
 	  </div>
 	  -->
-	  <ul class="pagination">
+	  <ul class="pager">
         {% if page.previous.url %}
         <li class="previous">
             <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
