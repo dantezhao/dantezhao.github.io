@@ -23,7 +23,7 @@ layout: default
 				<div class="post-content-preview">
 					{{ post.content | strip_html | truncate:200 }}
 				</div>
-				<span sytle="font-style:oblique">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
+				<span style="font-style:oblique">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
             </a>
 			<!--<p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>-->
           {% endfor %}
