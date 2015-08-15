@@ -19,18 +19,19 @@ layout: default
               	<h2>
               	{{ post.title }}
               	</h2>
-              	<!--<span class="">Posted by Zhao on {{ post.date | date: "%b %-d, %Y" }}</span>-->
-				<div class="post-content-preview">
-					{{ post.content | strip_html | truncate:350 }}
-				</div>
-				<span style="font-style:oblique">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
+              	<!--<span class="">Posted by Zhao on {{ post.date | date: "%b %-d, %Y" }}</span>-->	
             </a>
+			
+			<div class="post-content-preview">
+				{{ post.content | strip_html | truncate:350 }}
+			</div>
+			
+			<span style="font-style:oblique">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
 			<!--<p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>-->
           {% endfor %}
 		
 		<!-- 分页测试 -->
 		<div class="pagination pagination-right"> 
-			
 			<span class="page_number">第{{paginator.page}}页/共{{paginator.total_pages}}页</span> 
 			<a href="/">第一页</a> 
 			{% if paginator.previous_page %} 
@@ -42,7 +43,7 @@ layout: default
 			{% else %} 
 			<span> << Prev </span> 
 			{% endif %} 
-			{% for count in (2..paginator.total_pages) limit:8 %} 
+			{% for count in (1..paginator.total_pages) limit:8 %} 
 			{% if count == paginator.page %} 
 			<span class="current-page">{{count}}</span> 
 			{% else %} 
