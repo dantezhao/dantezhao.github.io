@@ -20,12 +20,13 @@ layout: default
               	{{ post.title }}
               	</h2>
               	<!--<span class="">Posted by Zhao on {{ post.date | date: "%b %-d, %Y" }}</span>-->
-				<br/>
 				<div class="post-content-preview">
 					{{ post.content | strip_html | truncate:200 }}
 				</div>
+				<span class="">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
             </a>
-			<p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+			<!--<p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>-->
+			<br/>
           {% endfor %}
 			
 			<!--{% for post in site.posts %}
