@@ -1,5 +1,6 @@
 ---
 layout: post
+author: zhao
 title:  "Python：Mechanize模拟浏览器行为"
 date:   2015-06-09 22:51:50
 categories: Python

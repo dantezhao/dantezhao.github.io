@@ -1,5 +1,6 @@
 ---
 layout: post
+author: zhao
 title:  "Docker：搭建开发环境（运行Eclipse等图形化界面程序）"
 date:   2015-08-10 20:14:50
 categories: Docker

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: zhao
 title:  "Linux：常用命令总结"
 date:   2015-08-11
 categories: Linux

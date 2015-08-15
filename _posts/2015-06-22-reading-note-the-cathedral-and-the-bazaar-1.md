@@ -1,5 +1,6 @@
 ---
 layout: post
+author: zhao
 title:  "读书笔记：《大教堂与集市》之一"
 date:   2015-06-22
 ---

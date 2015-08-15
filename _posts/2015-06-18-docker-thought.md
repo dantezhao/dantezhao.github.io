@@ -1,5 +1,6 @@
 ---
 layout: post
+author: zhao
 title:  "Docker：一些思考"
 date:   2015-06-18 20:14:50
 categories: Docker
