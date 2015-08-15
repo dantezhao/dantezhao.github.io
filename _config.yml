@@ -9,4 +9,6 @@ permalink: /:year/:month/:day/:title/
 # Build settings
 markdown: kramdown
 
-
+# 分页
+paginate: 5
+paginate_path: "page:num"
