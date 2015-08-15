@@ -44,6 +44,7 @@ sudo docker version
 ~~~
 
 输出结果：
+
 ~~~
 	Client version: 1.6.2
 	Client API version: 1.18
