@@ -48,7 +48,7 @@ Before operation, testInt is : 0
 In operation, testInt is : 5
 
 After operation, testInt is : 0
-{% endhighligh %}
+{% endhighlight %}
 
 ####总结
 
