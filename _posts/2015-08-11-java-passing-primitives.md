@@ -24,7 +24,7 @@ categories: Java
 
 ####程序
 
-~~~java
+{% highlight java %}
 	@Test
 	public void passInt(){		
 		int testInt = 0;
@@ -37,17 +37,18 @@ categories: Java
 		i = 5;
 		System.out.println("In operation, testInt is : " + i);
 	}
-~~~
+{% endhighligh %}
+
 
 ####结果
 
-~~~
+{% highlight java %}
 Before operation, testInt is : 0
 
 In operation, testInt is : 5
 
 After operation, testInt is : 0
-~~~
+{% endhighligh %}
 
 ####总结
 
