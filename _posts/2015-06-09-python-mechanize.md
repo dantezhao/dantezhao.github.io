@@ -171,7 +171,7 @@ br2.set_cookiejar(cj)
 #打开帖子的链接
 r = br2.open("http://examplehome.com/ID=001")
 
-br2.select_form(nr = 3)
+br2.select_form(nr = 3)ss
 
 #获取表单的信息
 #for f in br2.forms():
