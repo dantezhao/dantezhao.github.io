@@ -37,7 +37,7 @@ categories: Java
 		i = 5;
 		System.out.println("In operation, testInt is : " + i);
 	}
-{% endhighligh %}
+{% endhighlight %}
 
 
 ####结果
@@ -96,6 +96,13 @@ After operation, testInt is : 0
 	}
 	
 ~~~
+
+
+```java
+sadfsdafsd
+safsdfsadf
+```
+
 
 ####结果
 
