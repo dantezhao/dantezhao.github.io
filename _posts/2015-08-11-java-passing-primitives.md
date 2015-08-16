@@ -25,7 +25,6 @@ categories: Java
 ####程序
 
 
-test
 {% highlight java linenos %}
 	@Test
 	public void passInt(){		
@@ -99,11 +98,6 @@ After operation, testInt is : 0
 	
 ~~~
 
-
-```java
-sadfsdafsd
-safsdfsadf
-```
 
 
 ####结果

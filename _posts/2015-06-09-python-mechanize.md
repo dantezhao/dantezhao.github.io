@@ -42,7 +42,7 @@ mechanize是对urllib2的部分功能的替换，能够更好的模拟浏览器�
 
 比较简单，先获取表单信息，然后填入相应信息，提交即可，最后查看返回信息。
 
-{% highlight python %}
+~~~python
 import sys
 import mechanize
 
@@ -83,7 +83,7 @@ br.submit()
 # 查看搜索结果
 brr=br.response().read()
 #是html代码，能看到火车的搜索结果
-{% endhighlight %}
+~~~
 
 ###登录某论坛，并发贴
 
