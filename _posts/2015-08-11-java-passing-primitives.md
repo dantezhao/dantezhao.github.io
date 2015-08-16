@@ -24,7 +24,8 @@ categories: Java
 
 ####程序
 
-{% highlight java linenos %}
+
+test
 {% highlight java linenos %}
 	@Test
 	public void passInt(){		
