@@ -24,7 +24,8 @@ categories: Java
 
 ####程序
 
-{% highlight java %}
+{% highlight java linenos %}
+{% highlight java linenos %}
 	@Test
 	public void passInt(){		
 		int testInt = 0;
@@ -42,7 +43,7 @@ categories: Java
 
 ####结果
 
-{% highlight java %}
+{% highlight java linenos %}
 Before operation, testInt is : 0
 
 In operation, testInt is : 5
