@@ -4,6 +4,8 @@ author: zhao
 title: Linux：系统启动引导过程
 modified: 2015-08-17
 tags: [Linux]
+image:
+  feature: pic-8.jpg
 ---
 
 ##前言
