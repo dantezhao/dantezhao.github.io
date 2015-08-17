@@ -5,7 +5,7 @@ title: Docker：搭建开发环境（运行Eclipse等图形化界面程序）
 modified: 2015-08-17
 tags: [Docker, Container]
 image:
-  feature: abstract-6.jpg
+  feature: pic-7.jpg
   credit: dargadgetz
   creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---

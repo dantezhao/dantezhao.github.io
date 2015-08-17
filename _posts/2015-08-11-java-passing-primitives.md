@@ -5,7 +5,7 @@ title: Java：详解传值和传引用
 modified: 2015-08-17
 tags: [java]
 image:
-  feature: abstract-3.jpg
+  feature: pic-8.jpg
   credit: dargadgetz
   creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
