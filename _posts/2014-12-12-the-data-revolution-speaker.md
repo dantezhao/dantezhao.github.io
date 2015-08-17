@@ -5,7 +5,7 @@ title: The Data Revolution Speaker（Hadoop之父Doug Cutting在清华的讲座�
 modified: 2015-08-17
 tags: [Meeting]
 image:
-  feature: abstract-1.jpg
+  feature: pic-1.jpg
   credit: dargadgetz
   creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
