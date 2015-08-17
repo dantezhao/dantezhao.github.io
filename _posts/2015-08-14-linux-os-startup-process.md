@@ -4,10 +4,6 @@ author: zhao
 title: Linux：系统启动引导过程
 modified: 2015-08-17
 tags: [Linux]
-image:
-  feature: pic-18.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
 
 ##前言
