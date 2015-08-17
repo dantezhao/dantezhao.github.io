@@ -1,10 +1,15 @@
 ---
 layout: post
 author: zhao
-title:  "Docker：搭建开发环境（运行Eclipse等图形化界面程序）"
-date:   2015-08-10 20:14:50
-categories: Docker
+title: Docker：搭建开发环境（运行Eclipse等图形化界面程序）
+modified: 2015-08-17
+tags: [Docker, Container]
+image:
+  feature: abstract-6.jpg
+  credit: dargadgetz
+  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
+
 
 ##基本说明
 
@@ -16,7 +21,7 @@ categories: Docker
 
 我使用了Dockerfile来描述开发环境，下面是我写的一个只安装Eclipse的Dockerfile，诸如mysql，jdk什么的比较简单就不再写进来了。
 
-~~~
+{% highlight python linenos %}
 FROM ubuntu:14.04
 
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
@@ -45,26 +50,26 @@ RUN export uid=1000 gid=1000 && \
 USER developer
 ENV HOME /home/developer
 CMD /usr/bin/eclipse
-~~~
+{% endhighlight %}
 
 ##Docker Build
 
 不多做描述，网上有很多教程讲Docker的基本操作。
 
-~~~
+{% highlight python linenos %}
 docker build -t eclipse .
-~~~
+{% endhighlight %}
 
 ##启动可视化的Eclipse
 
 里面有的参数我也不是特别熟悉，由于没有深入研究Docker的各个参数，现在也只是处于知其然而不知其所以然的境界。
 
-~~~
+{% highlight python linenos %}
 docker run -ti --rm \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        eclipse
-~~~
+{% endhighlight %}
 
 
 ##注意

@@ -1,8 +1,13 @@
 ---
 layout: post
 author: zhao
-title:  "读书笔记：《大教堂与集市》之一"
-date:   2015-06-22
+title: 读书笔记：《大教堂与集市》之一
+modified: 2015-08-17
+tags: [Reading]
+image:
+  feature: abstract-8.jpg
+  credit: dargadgetz
+  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
 
 
