@@ -192,10 +192,3 @@ print br2_response
 ~~~
 
 
-```python
-
-fsafsaf
-fsadfdsa
-f   fsafs
-   fsafs
-```
