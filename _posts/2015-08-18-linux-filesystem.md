@@ -17,7 +17,7 @@ image:
 假设某一个文件的属性与权限数据是放置到 inode 4 号(下图较小方格内)，而这个 inode 记录了文件数据的实际放置点为 2, 7, 13, 15这四个 block 号码，此时我们的操作系统就能够据此来排列磁盘的阅读顺序，可以一口气将四个 block 内容读出来，这种数据访问的方式称为索引式文件系统。
 
 <figure class="half">
-	<a href="/images/blog/index-filesystem.png"><img align="center" src="/images/blog/index-filesystem.png"></a>
+	<a href="/images/blog/index-filesystem.png"><img style="float:middle" src="/images/blog/index-filesystem.png"></a>
 </figure>
 
 ##Ext2文件系统
@@ -25,7 +25,7 @@ image:
 当文件达到非常大的时候inode 与block放在一起是不明智的，因此Ext2区分多个组来管理。
 
 <figure class="half">
-	<a href="/images/blog/filesystem.png"><img align="center" src="/images/blog/filesystem.png"></a>
+	<a href="/images/blog/filesystem.png"><img style="float:middle" src="/images/blog/filesystem.png"></a>
 </figure>
 
 ###Boot Sector
@@ -37,7 +37,7 @@ image:
  - BIOS ->MBR（扫描分区表DPT）->启动操作系统
 
 <figure class="half">
-	<a href="/images/blog/boot-sector.png"><img align="center" src="/images/blog/boot-sector.png"></a>
+	<a href="/images/blog/boot-sector.png"><img style="float:middle" src="/images/blog/boot-sector.png"></a>
 </figure>
 
 ###Superblock
@@ -49,7 +49,7 @@ image:
  - 文件系统的挂载时间，最近一次写入数据的时间，最近一次检验磁盘(fsck)的时间等文件系统的相关信息
 
 <figure class="half">
-	<a href="/images/blog/superblock.png"><img align="center" src="/images/blog/superblock.png"></a>
+	<a href="/images/blog/superblock.png"><img style="float:middle" src="/images/blog/superblock.png"></a>
 </figure>
 
 ###Filesystem Description(文件系统描述说明)
@@ -58,7 +58,7 @@ image:
 - 说明每个区段(superblock,区块对应表,inodemap,data block)的位置
 
 <figure class="half">
-	<a href="/images/blog/filesystem-desc.png"><img align="center" src="/images/blog/filesystem-desc.png"></a>
+	<a href="/images/blog/filesystem-desc.png"><img style="float:middle" src="/images/blog/filesystem-desc.png"></a>
 </figure>
 
 ###block bitmap（区块对应表）
@@ -68,7 +68,7 @@ image:
 - 删除文件时,文件原本占用的block号码就得要释放出来, blockbitmap就做相应记录（在block bitmap当中相对应的block号码标志修改成为未使用）。
 
 <figure class="half">
-	<a href="/images/blog/block-bitmap.png"><img align="center" src="/images/blog/block-bitmap.png"></a>
+	<a href="/images/blog/block-bitmap.png"><img style="float:middle" src="/images/blog/block-bitmap.png"></a>
 </figure>
 
 ###inode bitmap
@@ -77,7 +77,7 @@ image:
 - 什么是inode，看下一张
 
 <figure class="half">
-	<a href="/images/blog/inode-bitmap.png"><img align="center" src="/images/blog/inode-bitmap.png"></a>
+	<a href="/images/blog/inode-bitmap.png"><img style="float:middle" src="/images/blog/inode-bitmap.png"></a>
 </figure>
 
 ###inode table
@@ -95,7 +95,7 @@ image:
 - 每个文件都仅会占用一个inode而已
 
 <figure class="half">
-	<a href="/images/blog/inode-table.png"><img align="center" src="/images/blog/inode-table.png"></a>
+	<a href="/images/blog/inode-table.png"><img style="float:middle" src="/images/blog/inode-table.png"></a>
 </figure>
 
 - 操作系统查找一个文件的过程
@@ -104,7 +104,7 @@ image:
 - 从inode table的pointer中，定位到文件内容存储于什么block中
 
 <figure class="half">
-	<a href="/images/blog/inode-table-cont.png"><img align="center" src="/images/blog/inode-table-cont.png"></a>
+	<a href="/images/blog/inode-table-cont.png"><img style="float:middle" src="/images/blog/inode-table-cont.png"></a>
 </figure>
 
 ###datablock
@@ -126,5 +126,5 @@ image:
 - 如果文件小于block,则该block的剩余容量就不能够再被使用了,磁盘空间会浪费
 
 <figure class="half">
-	<a href="/images/blog/block.png"><img align="center" src="/images/blog/block.png"></a>
+	<a href="/images/blog/block.png"><img style="float:middle" src="/images/blog/block.png"></a>
 </figure>
