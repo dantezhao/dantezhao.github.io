@@ -26,6 +26,7 @@ parted命令可以划分单个分区大于2T的GPT格式的分区，也可以划
 ###parted分区操作步骤
 
 先查看信息
+
 ~~~
 [root@z3 ~]# parted -l
 Model: Xen Virtual Block Device (xvd)
