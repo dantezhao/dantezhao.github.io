@@ -17,12 +17,16 @@ image:
 假设某一个文件的属性与权限数据是放置到 inode 4 号(下图较小方格内)，而这个 inode 记录了文件数据的实际放置点为 2, 7, 13, 15这四个 block 号码，此时我们的操作系统就能够据此来排列磁盘的阅读顺序，可以一口气将四个 block 内容读出来，这种数据访问的方式称为索引式文件系统。
 
 <figure class="half">
-	<a href="/images/blog/index-filesystem.png"><img src="/images/blog/index-filesystem.png" alt=""></a>
+	<a href="/images/blog/index-filesystem.png"><img src="/images/blog/index-filesystem.png"></a>
 </figure>
 
 ##Ext2文件系统（以Ext2文件系统为例）
 
 当文件达到非常大的时候inode 与block放在一起是不明智的，因此Ext2区分多个组来管理。
+
+<figure class="half">
+	<a href="/images/blog/filesystem.png"><img src="/images/blog/filesystem.png"></a>
+</figure>
 
 ###Boot Sector
 
@@ -32,6 +36,10 @@ image:
 – 在系统启动过程中充当重要角色：
  - BIOS ->MBR（扫描分区表DPT）->启动操作系统
 
+<figure class="half">
+	<a href="/images/blog/boot-sector.png"><img src="/images/blog/boot-sector.png"></a>
+</figure>
+
 ###Superblock
 
 – 记录的信息主要有:
@@ -40,10 +48,18 @@ image:
  - block与inode的大小(block为1,2,4K,inode为128 bytes)
  - 文件系统的挂载时间，最近一次写入数据的时间，最近一次检验磁盘(fsck)的时间等文件系统的相关信息
 
+<figure class="half">
+	<a href="/images/blog/superblock.png"><img src="/images/blog/superblock.png"></a>
+</figure>
+
 ###Filesystem Description(文件系统描述说明)
 
 – 描述每个block group的开始与结束的block号码,
 – 说明每个区段(superblock,区块对应表,inodemap,data block)的位置
+
+<figure class="half">
+	<a href="/images/blog/filesystem-desc.png"><img src="/images/blog/filesystem-desc.png"></a>
+</figure>
 
 ###block bitmap（区块对应表）
 
@@ -51,17 +67,45 @@ image:
 – block bitmap当中可以知道哪些block是空的,因此我们的系统就能够快速找到可以使用的空间来处置文件
 – 删除文件时,文件原本占用的block号码就得要释放出来, blockbitmap就做相应记录（在block bitmap当中相对应的block号码标志修改成为未使用）。
 
+<figure class="half">
+	<a href="/images/blog/block-bitmap.png"><img src="/images/blog/block-bitmap.png"></a>
+</figure>
+
 ###inode bitmap
 
 – 功能与block bitmap是类似,block bitmap记录的是使用和未使用的block号码, inode bitmap则是记录使用和未使用的inode号码
 – 什么是inode，看下一张
 
+<figure class="half">
+	<a href="/images/blog/inode-bitmap.png"><img src="/images/blog/inode-bitmap.png"></a>
+</figure>
+
 ###inode table
+
+– inode，记录文件的属性以及该文件实际数据放置在哪些block
+– 该文件的存取模式(read/write/excute)
+– 该文件的拥有者与群组(owner/group)
+– 该文件的容量
+– 该文件建立或状态改变的时间(ctime)
+– 最近一次的读取时间(atime)
+– 最近修改的时间(mtime)
+– 定义文件特性的标志(flag)
+– 该文件真正内容的指向(pointer)
+– 每个inode大小均固定为128bytes
+– 每个文件都仅会占用一个inode而已
+
+<figure class="half">
+	<a href="/images/blog/inode-table.png"><img src="/images/blog/inode-table.png"></a>
+</figure>
 
 – 操作系统查找一个文件的过程
  - 先找到inode number
  - 根据inode number找到相应的inode table
  - 从inode table的pointer中，定位到文件内容存储于什么block中
+
+<figure class="half">
+	<a href="/images/blog/inode-table-cont.png"><img src="/images/blog/inode-table-cont.png"></a>
+</figure>
 
 ###datablock
 
@@ -80,3 +124,7 @@ image:
 – 每个block内最多只能够放置一个文件的数据;
 – 如果文件大于block的大小,则一个文件会占用多个block数量;
 – 如果文件小于block,则该block的剩余容量就不能够再被使用了,磁盘空间会浪费
+
+<figure class="half">
+	<a href="/images/blog/block.png"><img src="/images/blog/block.png"></a>
+</figure>
