@@ -20,7 +20,7 @@ image:
 	<a href="/images/blog/index-filesystem.png"><img src="/images/blog/index-filesystem.png"></a>
 </figure>
 
-##Ext2文件系统（以Ext2文件系统为例）
+##Ext2文件系统
 
 当文件达到非常大的时候inode 与block放在一起是不明智的，因此Ext2区分多个组来管理。
 
@@ -32,8 +32,8 @@ image:
 
 - 启动扇区，设备的第一个扇区
 - 放置开机管理程序，加载并转让处理器控制权给操作系统
-– 由主引导记录（MBR，Main Boot Recode，是一段程序）、磁盘分区表（DPT， Disk Partition Table）和硬盘有效标志（MN，Magic Number）组成
-– 在系统启动过程中充当重要角色：
+- 由主引导记录（MBR，Main Boot Recode，是一段程序）、磁盘分区表（DPT， Disk Partition Table）和硬盘有效标志（MN，Magic Number）组成
+- 在系统启动过程中充当重要角色：
  - BIOS ->MBR（扫描分区表DPT）->启动操作系统
 
 <figure class="half">
@@ -42,7 +42,7 @@ image:
 
 ###Superblock
 
-– 记录的信息主要有:
+- 记录的信息主要有:
  - block与inode 的总量
  - 未使用与已使用的inode/block数量
  - block与inode的大小(block为1,2,4K,inode为128 bytes)
@@ -54,8 +54,8 @@ image:
 
 ###Filesystem Description(文件系统描述说明)
 
-– 描述每个block group的开始与结束的block号码,
-– 说明每个区段(superblock,区块对应表,inodemap,data block)的位置
+- 描述每个block group的开始与结束的block号码
+- 说明每个区段(superblock,区块对应表,inodemap,data block)的位置
 
 <figure class="half">
 	<a href="/images/blog/filesystem-desc.png"><img src="/images/blog/filesystem-desc.png"></a>
@@ -63,9 +63,9 @@ image:
 
 ###block bitmap（区块对应表）
 
-– 新增文件时总会用到block，使用空的block来记录新文件的数据。
-– block bitmap当中可以知道哪些block是空的,因此我们的系统就能够快速找到可以使用的空间来处置文件
-– 删除文件时,文件原本占用的block号码就得要释放出来, blockbitmap就做相应记录（在block bitmap当中相对应的block号码标志修改成为未使用）。
+- 新增文件时总会用到block，使用空的block来记录新文件的数据。
+- block bitmap当中可以知道哪些block是空的,因此我们的系统就能够快速找到可以使用的空间来处置文件
+- 删除文件时,文件原本占用的block号码就得要释放出来, blockbitmap就做相应记录（在block bitmap当中相对应的block号码标志修改成为未使用）。
 
 <figure class="half">
 	<a href="/images/blog/block-bitmap.png"><img src="/images/blog/block-bitmap.png"></a>
@@ -73,8 +73,8 @@ image:
 
 ###inode bitmap
 
-– 功能与block bitmap是类似,block bitmap记录的是使用和未使用的block号码, inode bitmap则是记录使用和未使用的inode号码
-– 什么是inode，看下一张
+- 功能与block bitmap是类似,block bitmap记录的是使用和未使用的block号码, inode bitmap则是记录使用和未使用的inode号码
+- 什么是inode，看下一张
 
 <figure class="half">
 	<a href="/images/blog/inode-bitmap.png"><img src="/images/blog/inode-bitmap.png"></a>
@@ -82,26 +82,26 @@ image:
 
 ###inode table
 
-– inode，记录文件的属性以及该文件实际数据放置在哪些block
-– 该文件的存取模式(read/write/excute)
-– 该文件的拥有者与群组(owner/group)
-– 该文件的容量
-– 该文件建立或状态改变的时间(ctime)
-– 最近一次的读取时间(atime)
-– 最近修改的时间(mtime)
-– 定义文件特性的标志(flag)
-– 该文件真正内容的指向(pointer)
-– 每个inode大小均固定为128bytes
-– 每个文件都仅会占用一个inode而已
+- inode，记录文件的属性以及该文件实际数据放置在哪些block
+- 该文件的存取模式(read/write/excute)
+- 该文件的拥有者与群组(owner/group)
+- 该文件的容量
+- 该文件建立或状态改变的时间(ctime)
+- 最近一次的读取时间(atime)
+- 最近修改的时间(mtime)
+- 定义文件特性的标志(flag)
+- 该文件真正内容的指向(pointer)
+- 每个inode大小均固定为128bytes
+- 每个文件都仅会占用一个inode而已
 
 <figure class="half">
 	<a href="/images/blog/inode-table.png"><img src="/images/blog/inode-table.png"></a>
 </figure>
 
-– 操作系统查找一个文件的过程
- - 先找到inode number
- - 根据inode number找到相应的inode table
- - 从inode table的pointer中，定位到文件内容存储于什么block中
+- 操作系统查找一个文件的过程
+- 先找到inode number
+- 根据inode number找到相应的inode table
+- 从inode table的pointer中，定位到文件内容存储于什么block中
 
 <figure class="half">
 	<a href="/images/blog/inode-table-cont.png"><img src="/images/blog/inode-table-cont.png"></a>
@@ -109,10 +109,10 @@ image:
 
 ###datablock
 
-– data block是用来放置文件内容数据地方
-– 在Ext2文件系统中所支持block大小有1K,2K及4K三种。
-– 格式化时block的大小就固定了,且每个block都有编号,以方便inode记录。
-– 由于block大小的差异,导致文件系统能够支持的最大磁盘容量和最大单一文件容量并不相同
+- data block是用来放置文件内容数据地方
+- 在Ext2文件系统中所支持block大小有1K,2K及4K三种。
+- 格式化时block的大小就固定了,且每个block都有编号,以方便inode记录。
+- 由于block大小的差异,导致文件系统能够支持的最大磁盘容量和最大单一文件容量并不相同
 
 | Block大小 | 1KB | 2KB | 4KB |
 | 最大单一文件限制 | 16GB | 256GB | 2TB |
@@ -120,10 +120,10 @@ image:
 
 ####block限制
 
-– 基本上block的大小与数量在格式化完就不能够改变(除非重新格式化);
-– 每个block内最多只能够放置一个文件的数据;
-– 如果文件大于block的大小,则一个文件会占用多个block数量;
-– 如果文件小于block,则该block的剩余容量就不能够再被使用了,磁盘空间会浪费
+- 基本上block的大小与数量在格式化完就不能够改变(除非重新格式化);
+- 每个block内最多只能够放置一个文件的数据;
+- 如果文件大于block的大小,则一个文件会占用多个block数量;
+- 如果文件小于block,则该block的剩余容量就不能够再被使用了,磁盘空间会浪费
 
 <figure class="half">
 	<a href="/images/blog/block.png"><img src="/images/blog/block.png"></a>
