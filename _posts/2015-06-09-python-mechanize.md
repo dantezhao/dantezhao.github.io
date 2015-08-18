@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title: Python：Mechanize模拟浏览器行为
 modified: 2015-07-17
-tags: [Python, Mechanize]
+tags: [Python]
 image:
   feature: pic-3.jpg
   credit: dargadgetz

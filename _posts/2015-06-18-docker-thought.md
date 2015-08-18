@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title: Docker：一些思考
 modified: 2015-08-17
-tags: [docker, container]
+tags: [Docker]
 image:
   feature: pic-3.jpg
   credit: dargadgetz

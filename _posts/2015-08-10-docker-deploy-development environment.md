@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title: Docker：搭建开发环境（运行Eclipse等图形化界面程序）
 modified: 2015-08-17
-tags: [Docker, Container]
+tags: [Docker]
 image:
   feature: pic-7.jpg
   credit: dargadgetz

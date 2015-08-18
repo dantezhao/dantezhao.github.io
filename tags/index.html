@@ -3,6 +3,11 @@ layout: post-index
 title: Tag Archive
 description: "An archive of posts sorted by tag."
 comments: false
+image:
+  feature: pic-9.jpg
+  credit: dargadgetz
+  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+---
 ---
 
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}

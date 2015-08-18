@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title: Docker：初步使用
 modified: 2015-08-17
-tags: [Docker, Container]
+tags: [Docker]
 image:
   feature: pic-4.jpg
   credit: dargadgetz
