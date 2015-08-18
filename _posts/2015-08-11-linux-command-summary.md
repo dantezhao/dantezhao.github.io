@@ -1,13 +1,9 @@
 ---
 layout: post
 author: zhao
-title: Linux：常用命令总结
-modified: 2015-08-17
-tags: [Linux]
-image:
-  feature: pic-14.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+title:  "Linux：常用命令总结"
+date:   2015-08-11
+categories: Linux
 ---
 
 ##常用命令总结

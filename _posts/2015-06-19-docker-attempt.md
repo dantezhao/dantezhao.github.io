@@ -1,15 +1,12 @@
 ---
 layout: post
 author: zhao
-title: Docker：初步使用
-modified: 2015-08-17
-tags: [Docker]
-image:
-  feature: pic-4.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+title:  "Docker：初步使用"
+date:   2015-06-19 20:14:50
+categories: Docker
 ---
-##写在前面
+
+#写在前面
 
 学习Docker，官方文档必不可少，官网提供了比较好的文档支持以及一个交互型教程的帮助，建议最初的时候先以官网为主，出问题后再找一些博客和资料帮助解决。
 
@@ -32,9 +29,9 @@ image:
 
 Ubuntu14.04安装Docker省却了更新内核等各种操作，可直接安装，按照官网的方式即可，只有一步，网上一些博客的安装方式和官网的方式是不一样的。自己选择。
 
-{% highlight python linenos %}
+~~~
 wget -qO- https://get.docker.com/ | sh
-{% endhighlight %}
+~~~
 
 OK，纯净系统安装，没报任何令人不愉快的错误，安装完成。
 
@@ -42,13 +39,13 @@ OK，纯净系统安装，没报任何令人不愉快的错误，安装完成。
 
 ####查看版本：
 
-{% highlight python linenos %}
+~~~
 sudo docker version
-{% endhighlight %}
+~~~
 
 输出结果：
 
-{% highlight python linenos %}
+~~~
 	Client version: 1.6.2
 	Client API version: 1.18
 	Go version (client): go1.4.2
@@ -59,18 +56,18 @@ sudo docker version
 	Go version (server): go1.4.2
 	Git commit (server): 7c8fca2
 	OS/Arch (server): linux/amd64
-{% endhighlight %}
+~~~
 
 ####查看信息
 
-{% highlight python linenos %}
+~~~
 sudo docker info
-{% endhighlight %}
+~~~
 
 输出信息：
 （我是安装成功后写的文档，所以会有一些多余的内容，初次使用应该不会出现。另：无形中暴露了自己的机器信息......）
 
-{% highlight python linenos %}
+~~~
 	Containers: 12
 	Images: 25
 	Storage Driver: aufs
@@ -88,21 +85,21 @@ sudo docker info
 	Username: ××××××
 	Registry: [https://index.docker.io/v1/]
 	WARNING: No swap limit support
-{% endhighlight %}
+~~~
 
 ###运行一个例子
 
 
-{% highlight python linenos %}
+~~~
 sudo docker run hello-world
-{% endhighlight %}
+~~~
 
 
 输出结果：
 
 注意其中的`This message shows that your installation appears to be working correctly.` 证明docker安装成功了。
 
-{% highlight python linenos %}
+~~~
 Hello from Docker.
 This message shows that your installation appears to be working correctly.
 
@@ -120,7 +117,7 @@ To try something more ambitious, you can run an Ubuntu container with:
 
 For more examples and ideas, visit:
  http://docs.docker.com/userguide/
-{% endhighlight %}
+~~~
 
 ##权限设置
 
@@ -128,13 +125,13 @@ For more examples and ideas, visit:
 
 在使用非root用户登陆的时候，如果命令不加sudo，会有如下错误：
 
-{% highlight python linenos %}
+~~~
 test@prairie:/root$ docker info
-{% endhighlight %}
+~~~
 
-{% highlight python linenos %}
+~~~
 FATA[0000] Get http:///var/run/docker.sock/v1.18/info: dial unix /var/run/docker.sock: permission denied. Are you trying to connect to a TLS-enabled daemon without TLS? 
-{% endhighlight %}
+~~~
 
 这是没有加sudo引起的权限的问题。
 
@@ -142,14 +139,14 @@ FATA[0000] Get http:///var/run/docker.sock/v1.18/info: dial unix /var/run/docker
 
 方法是，新建一个docker用户组，然后把现有用户添加进该组即可
 
-{% highlight python linenos %}
+~~~
 sudo usermod -aG docker zhao（假设以zhao用户登陆） 
-{% endhighlight %}
+~~~
 
 
 然后再执行命令就不会报错了。
 
-{% highlight python linenos %}
+~~~
 zhao@prairie:~$ docker run hello-world
 Hello from Docker.
 This message shows that your installation appears to be working correctly.
@@ -168,4 +165,4 @@ To try something more ambitious, you can run an Ubuntu container with:
 
 For more examples and ideas, visit:
  http://docs.docker.com/userguide/
-{% endhighlight %}
+~~~

@@ -1,13 +1,9 @@
 ---
 layout: post
 author: zhao
-title: Python：Mechanize模拟浏览器行为
-modified: 2015-07-17
-tags: [Python]
-image:
-  feature: pic-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+title:  "Python：Mechanize模拟浏览器行为"
+date:   2015-06-09 22:51:50
+categories: Python
 ---
 
 ##使用Mechanize模拟浏览器行为
@@ -46,7 +42,7 @@ mechanize是对urllib2的部分功能的替换，能够更好的模拟浏览器�
 
 比较简单，先获取表单信息，然后填入相应信息，提交即可，最后查看返回信息。
 
-{% highlight python linenos %}
+~~~python
 import sys
 import mechanize
 
@@ -87,8 +83,7 @@ br.submit()
 # 查看搜索结果
 brr=br.response().read()
 #是html代码，能看到火车的搜索结果
-print brr
-{% endhighlight %}
+~~~
 
 ###登录某论坛，并发贴
 
@@ -99,7 +94,7 @@ print brr
  - 在相应位置填入信息，提交，最后查看结果。
  
 
-{% highlight python linenos %}
+~~~python
 import sys
 import mechanize
 
@@ -176,7 +171,7 @@ br2.set_cookiejar(cj)
 #打开帖子的链接
 r = br2.open("http://examplehome.com/ID=001")
 
-br2.select_form(nr = 3)
+br2.select_form(nr = 3)ss
 
 #获取表单的信息
 #for f in br2.forms():
@@ -190,4 +185,14 @@ br2.submit()
 #查看发帖后的结果
 br2_response = br2.response().read()
 print br2_response
-{% endhighlight %}
+
+~~~
+
+
+```python
+
+fsafsaf
+fsadfdsa
+f   fsafs
+   fsafs
+```

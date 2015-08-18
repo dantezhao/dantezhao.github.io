@@ -1,13 +1,9 @@
 ---
 layout: post
 author: zhao
-title: Java：详解传值和传引用
-modified: 2015-08-17
-tags: [Java]
-image:
-  feature: pic-8.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+title:  "Java：详解传值和传引用"
+date:   2015-08-11 19:14:50
+categories: Java
 ---
 
 ##传值和传引用
@@ -27,6 +23,8 @@ image:
 ###例1：传Int类型的值
 
 ####程序
+
+
 {% highlight java linenos %}
 	@Test
 	public void passInt(){		
@@ -42,9 +40,10 @@ image:
 	}
 {% endhighlight %}
 
+
 ####结果
 
-{% highlight python %}
+{% highlight java linenos %}
 Before operation, testInt is : 0
 
 In operation, testInt is : 5
@@ -61,7 +60,8 @@ After operation, testInt is : 0
 ###例2：传对象型变量
 
 ####代码
-{% highlight java linenos %}
+
+~~~java
 	@Test
 	public void passClass(){
 		Person person = new Person(175,140);
@@ -95,17 +95,21 @@ After operation, testInt is : 0
 			this.weight = wei;
 		}
 	}
-{% endhighlight %}
+	
+~~~
+
+
 
 ####结果
 
-{% highlight python %}
+~~~
 Before classOperation, the person height is 175 and the weight is 140
 
 In classOperation, the person height is 190 and the weight is 160
 
 After classOperation, the person height is 190 and the weight is 160
-{% endhighlight %}
+~~~
+
 
 ####总结
 
@@ -122,7 +126,7 @@ After classOperation, the person height is 190 and the weight is 160
 
 ####代码
 
-{% highlight java linenos %}
+~~~java
 	@Test
 	public void passString(){
 		String testString = "Hello";
@@ -136,17 +140,17 @@ After classOperation, the person height is 190 and the weight is 160
 		s = "World";
 		System.out.println("In operation, testString is : " + s);
 	}
-{% endhighlight %}
+~~~
 
 ####结果
 
-{% highlight python %}
+~~~
 Before operation, testString is : Hello
 
 In operation, testString is : World
 
 After operation, testString is : Hello
-{% endhighlight %}
+~~~
 
 ####总结
 
@@ -163,7 +167,8 @@ String类型也是对象型类型，所以它是传引用副本。
 ###例4：传String类型——使用new来创建新对象
 
 ####代码
-{% highlight java linenos %}
+
+~~~java
 	@Test
 	public void passString(){
 		String testString = new String("Hello");
@@ -177,18 +182,18 @@ String类型也是对象型类型，所以它是传引用副本。
 		s = new String("World");
 		System.out.println("In operation, testString is : " + s);
 	}
-{% endhighlight %}
+~~~
 
 ####输出
 
-{% highlight python %}
+~~~
 Before operation, testString is : Hello
 
 In operation, testString is : World
 
 After operation, testString is : Hello
 
-{% endhighlight %}
+~~~
 
 ####总结
 
@@ -197,7 +202,8 @@ After operation, testString is : Hello
 ###例5：传对象型变量——在classOperation()使用new创建
 
 ####代码
-{% highlight java linenos %}
+
+~~~java
 	public class Person{
 		
 		int height;
@@ -231,17 +237,17 @@ After operation, testString is : Hello
 				" and the weight is " + person.weight);
 		
 	}
-{% endhighlight %}
+~~~
 
 ####结果
 
-{% highlight python %}
+~~~
 Before classOperation, the person height is 175 and the weight is 140
 
 In classOperation, the person height is 190 and the weight is 160
 
 After classOperation, the person height is 175 and the weight is 140
-{% endhighlight %}
+~~~
 
 ####总结
 
@@ -251,3 +257,5 @@ After classOperation, the person height is 175 and the weight is 140
 ##三、总结
 
 上面的分析主要是基于结果来判断的，可能不是特别准确，望批评指正。
+
+
