@@ -6,6 +6,9 @@ date: 2014-12-12 20:14:50
 categories: Meeting
 ---
 
+* content
+{:toc}
+
 ##The Data Revolution Speaker 讲座记录
 
 >2014-12-12 14:30     清华大学FIT楼二路多功能厅

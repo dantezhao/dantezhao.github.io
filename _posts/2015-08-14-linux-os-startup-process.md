@@ -6,6 +6,8 @@ date:   2015-08-14 22:14:54
 categories: Linux
 ---
 
+* content
+{:toc}
 
 ##前言
 

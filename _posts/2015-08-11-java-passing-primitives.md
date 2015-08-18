@@ -6,6 +6,9 @@ date:   2015-08-11 19:14:50
 categories: Java
 ---
 
+* content
+{:toc}
+
 ##传值和传引用
 
 > When you're passing primitives into a method ,you get a distinct copy of the primitive. When you're passing a reference into a method ,  you get a copy of the reference.

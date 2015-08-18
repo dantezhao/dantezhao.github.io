@@ -6,6 +6,9 @@ date:   2015-08-10 20:14:50
 categories: Docker
 ---
 
+* content
+{:toc}
+
 ##基本说明
 
 两个月前的时候自己提出想通过Docker来搭建开发环境（http://blog.csdn.net/zhaodedong/article/details/46549279），能方便地供实验室的其他同学使用。我所谓的开发环境没太复杂，只是能在一个docker镜像中运行Mysql、Jdk、Eclipse等基本的软件，但是Eclipse是需要能通过Docker启动可视化的界面。
