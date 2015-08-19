@@ -53,7 +53,7 @@ categories: Linux
 
 划分磁道和扇区的过程叫做**低级格式化**，通常出厂的时候已经完成。相对于低级格式化来说，**高级格式化**是指对磁盘上的数据进行文件系统的标记而不是对扇区和磁道进行标记。
 
-![sector-track]({{ "pics/sector-track.png"}})
+![sector-track]({{ "/pics/sector-track.png"}})
 
 ###**柱面**（Cylinder）
 
@@ -61,7 +61,7 @@ categories: Linux
 
 ***数据的读写按柱面进行。***
 
-![cylinder]({{ "pics/cylinder.png"}})
+![cylinder]({{ "/pics/cylinder.png"}})
 
 ###**0磁道**
 
@@ -83,7 +83,7 @@ categories: Linux
 
 电子切换相当快，比使用机械将磁头向临济磁道移动要快得多，所以数据的读写按柱面进行，而不按盘面进行。
 
-![partition]({{ "pics/partition.png"}})
+![partition]({{ "/pics/partition.png"}})
 
 ##补充
 
