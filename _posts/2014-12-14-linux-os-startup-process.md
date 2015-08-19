@@ -2,7 +2,7 @@
 layout: post
 author: zhao
 title:  "Linux：系统启动引导过程"
-date:   2015-08-14 22:14:54
+date:   2014-12-14 22:14:54
 categories: Linux
 ---
 
