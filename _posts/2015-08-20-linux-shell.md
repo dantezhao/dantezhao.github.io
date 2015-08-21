@@ -45,7 +45,7 @@ categories: Linux
 	
 ####例子
 
-~~~html
+~~~java
 //-name 查找目录下名字为demo1的文件，包括子目录
 [root@z1 shell]# find . -name demo1
 ./dir/demo1
