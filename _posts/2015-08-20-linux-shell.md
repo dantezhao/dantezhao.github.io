@@ -46,35 +46,35 @@ categories: Linux
 ####例子
 
 ~~~html
-#-name 查找目录下名字为demo1的文件，包括子目录
+//-name 查找目录下名字为demo1的文件，包括子目录
 [root@z1 shell]# find . -name demo1
 ./dir/demo1
 ./demo1
 
-#-name 找到目录下符合正则表达式的文件
-#正则表达式的内容需要在单引号内
+//-name 找到目录下符合正则表达式的文件
+//正则表达式的内容需要在单引号内
 [root@z1 shell]# find . -name '*mo*'
 ./dir/demo1
 ./demo1
 ./demo2
 
-#找到权限是755的文件
-#可以看到结果里面包含目录
+//找到权限是755的文件
+//可以看到结果里面包含目录
 [root@z1 shell]# find ./ -perm 755
 ./
 ./dir
 ./dir/demo1
 ./dir/demo1/demo3
 
-#找到权限是755的文件，设定文件类型是f
+//找到权限是755的文件，设定文件类型是f
 [root@z1 shell]# find ./ -type f -perm 755
 ./dir/demo1/demo3
 
-#查找属于用户组zhdd的文件
+//查找属于用户组zhdd的文件
 [root@z1 shell]# find . -group zhdd
 ./greptest
 
-#查找用户root的文件
+//查找用户root的文件
 [root@z1 shell]# find . -user root
 .
 ./.greptest.txt.swp
@@ -85,7 +85,7 @@ categories: Linux
 ./greptest
 ./demo2
 
-#查找一天之内改过的文件
+//查找一天之内改过的文件
 [root@z1 log]# ll secure
 -rw-------. 1 root root 3541 Aug 21 16:06 secure
 [root@z1 log]# find -mtime -1
@@ -101,7 +101,7 @@ categories: Linux
 [root@x129 log]# ll secure
 -rw-------. 1 root root 3541 Aug 21 16:06 secure
 
-#查找5天前修改过的文件
+//查找5天前修改过的文件
 [root@x129 log]# find -mtime +5
 ./prelink
 
@@ -122,7 +122,7 @@ categories: Linux
 [root@x129 log]# ll ./gdm/:0-greeter.log.1
 -rw-r--r--. 1 gdm gdm 1218 Sep 25  2014 ./gdm/:0-greeter.log.1
 
-#查找文件后m并执行cat命令
+//查找文件后m并执行cat命令
 [root@z1 shell]# find ./ -name 'gre*' -exec cat {} \;
 fslkajfjsalfkjsfjlsf
 ~~~
