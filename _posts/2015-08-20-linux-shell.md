@@ -22,55 +22,118 @@ categories: Linux
 - print，find命令将匹配的文件输出到标准输出
 - exec，find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } \;，注意{   }和\；之间的空格 
 
-####详细说明
+####常用选项
 
-#####-exec
+- -name 按照文件名查找文件
 
-find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } \;，注意{   }和\；之间的空格
+- -perm 按照文件权限来查找文件
 
-举例：找出当前目录下大小为0的文件，并执行ls指令
+- -user 按照文件属主来查找文件
 
-~~~
-find ./ -size 0 -exec ls {} \;
-~~~
+- -group 按照文件所属的组来查找文件
 
-#####**-name** 
+- -mtime -n +n 按照文件的更改时间来查找文件， **-n表示文件更改时间距现在n天以内，+n表示文件更改时间距现在n天以前**。
 
-按照文件名查找文件,支持正则表达式
-
-~~~
-find ./ -name demo1;
-~~~
-
-
-#####-perm
-
-按照文件权限来查找文件，在当前目录下查找文件权限位为755的文件
+- -type 按照文件类型查找文件
+ - b - 块设备文件。
+ - d - 目录。
+ - c - 字符设备文件。
+ - p - 管道文件。
+ - l - 符号链接文件。
+ - f - 普通文件。
+####例子
 
 ~~~
-find . -perm 755 -print
+#-name 查找目录下名字为demo1的文件，包括子目录
+[root@z1 shell]# find . -name demo1
+./dir/demo1
+./demo1
+
+#-name 找到目录下符合正则表达式的文件
+#正则表达式的内容需要在单引号内
+[root@z1 shell]# find . -name '*mo*'
+./dir/demo1
+./demo1
+./demo2
+
+#找到权限是755的文件
+#可以看到结果里面包含目录
+[root@z1 shell]# find ./ -perm 755
+./
+./dir
+./dir/demo1
+./dir/demo1/demo3
+
+#找到权限是755的文件，设定文件类型是f
+[root@z1 shell]# find ./ -type f -perm 755
+./dir/demo1/demo3
+
+#查找属于用户组zhdd的文件
+[root@z1 shell]# find . -group zhdd
+./greptest
+
+#查找用户root的文件
+[root@z1 shell]# find . -user root
+.
+./.greptest.txt.swp
+./dir
+./dir/demo1
+./dir/demo1/demo3
+./demo1
+./greptest
+./demo2
+
+#查找一天之内改过的文件
+[root@z1 log]# ll secure
+-rw-------. 1 root root 3541 Aug 21 16:06 secure
+[root@z1 log]# find -mtime -1
+./cron
+./wtmp
+./sa
+./sa/sa20
+./sa/sar20
+./sa/sa21
+./audit/audit.log
+./lastlog
+./secure
+[root@x129 log]# ll secure
+-rw-------. 1 root root 3541 Aug 21 16:06 secure
+
+#查找5天前修改过的文件
+[root@x129 log]# find -mtime +5
+./prelink
+
+.....
+
+./gdm/:0.log.4
+./gdm/:0-slave.log.1
+./gdm/:0-greeter.log.3
+./gdm/:0-slave.log
+./gdm/:0-greeter.log.2
+./gdm/:0-slave.log.2
+./gdm/:0-greeter.log
+./gdm/:0.log.1
+./gdm/:0-greeter.log.4
+./gdm/:0-slave.log.3
+./gdm/:0.log.2
+./gdm/:0-greeter.log.1
+[root@x129 log]# ll ./gdm/:0-greeter.log.1
+-rw-r--r--. 1 gdm gdm 1218 Sep 25  2014 ./gdm/:0-greeter.log.1
+
+#查找文件后m并执行cat命令
+[root@z1 shell]# find ./ -name 'gre*' -exec cat {} \;
+fslkajfjsalfkjsfjlsf
 ~~~
 
-#####-user
 
-按照文件属主来查找文件，在/home目录中查找文件属主为chinahadoop的文件
 
-~~~
-find /home -user chinahadoop -print
-~~~
 
-#####-group 
 
-按照文件所属的组来查找文件，在/home目录下查找属于hadoop用户组的文件
 
-~~~
-find /home -group hadoop -print
-~~~
 
-#####-mtime -n +n 
 
-按照文件的更改时间来查找文件， -n表示文件更改时间距现在n天以内，+n表示文件更改时间距现在n天以前。在系统当前目录下查找更改时间在5日以内的文件
 
-~~~
-find . -mtime -5 -print
-~~~
+
+
+
+
