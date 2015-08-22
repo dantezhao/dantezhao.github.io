@@ -1,9 +1,9 @@
 ---
 layout: post
 author: zhao
-title:  Linux：find命令
+title:  Shell：find命令
 date:   2015-08-20 23:14:54
-categories: Linux
+categories: Shell
 ---
 
 * content
