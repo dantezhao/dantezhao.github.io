@@ -1,7 +1,7 @@
 ---
 layout: post
 author: zhao
-title:  Linux：grep命令
+title:  Shell：grep/egrep/fgrep
 date:   2015-08-22 23:14:54
 categories: Linux
 ---
@@ -134,3 +134,72 @@ yum.log:Aug 20 19:11:39 Installed: tigervnc-server-1.1.0-16.el6.centos.x86_64
 yum.log:Aug 20 19:11:53 Installed: xrdp-0.6.1-4.el6.x86_64
 ~~~
 
+
+
+##egrep 和 fgrep
+
+egrep和fgrep是grep加了额外的参数得到的命令，都算是在grep基础上行的一个封装。
+
+man grep有一段解释：
+
+>In  addition,  two  variant programs egrep and fgrep are available.  egrep is the same as grep -E.  fgrep is the same as grep -F.  Direct invocation as either egrep or fgrep is deprecated,  but  is  provided  to allow  historical  applications that rely on them to run unmodified.
+
+###egrep
+
+可以使用基本的正则表达外, 还可以用扩展表达式.
+
+egrep = grep -E
+
+> -E, --extended-regexp Interpret  PATTERN  as  an  extended  regular expression  (ERE, see below).    (-E is specified by POSIX.)
+
+####扩展表达式
+
+- + 匹配一个或者多个先前的字符, 至少一个先前字符.
+- ? 匹配0个或者多个先前字符.
+- a|b|c 匹配a或b或c
+- () 字符组, 如: love(able|ers) 匹配loveable或lovers.
+- (..)(..)\1\2 模板匹配. \1代表前面第一个模板, \2代第二个括弧里面的模板.
+- x{m,n} =x\{m,n\} x的字符数量在m到n个之间.
+
+###fgrep
+
+速度比较快。
+
+个人感觉可以理解为就是固化表达式的搜索,在不需要任何表达式和变量等的情况下，可以使用。
+
+fgrep = grep -F
+
+> -F, --fixed-strings Interpret PATTERN as a list of fixed strings, separated by newlines, any of which is to  be matched.  (-F is specified by POSIX.)
+
+###grep/fgrep/egrep三者对比
+
+
+下面是个简单的对比例子
+
+~~~java
+
+[root@z1 shell]# cat fgreptest 
+[1-9].*
+123142324
+zhao
+123abc456
+^[1-9].*[6]$
+
+
+//使用fgrep得到的是通过字符串匹配出来的结果
+[root@z1 shell]# cat fgreptest | fgrep '^[1-9].*[6]$'
+^[1-9].*[6]$
+
+//使用grep和egrep得到是正则表达式的结果
+[root@z1 shell]# cat fgreptest | egrep '^[1-9].*[6]$'
+123abc456
+[root@z1 shell]# cat fgreptest | grep '^[1-9].*[6]$'
+123abc456
+
+//egrep还可以通过扩展表达式得到以4或者6结尾的字符串，但是grep不行
+[root@z1 shell]# cat fgreptest | grep '^[1-9].*(4|6)$'
+[root@z1 shell]# cat fgreptest | egrep '^[1-9].*(4|6)$'
+123142324
+123abc456
+
+~~~
