@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title:  Shell：grep/egrep/fgrep
 date:   2015-08-22 23:14:54
-categories: Linux
+categories: Shell
 ---
 
 * content
@@ -154,17 +154,17 @@ egrep = grep -E
 
 ####扩展表达式
 
-- '+' 匹配一个或者多个先前的字符, 至少一个先前字符.
+- `+` 匹配一个或者多个先前的字符, 至少一个先前字符.
 
-- ? 匹配0个或者多个先前字符.
+- `?` 匹配0个或者多个先前字符.
 
-- 'a|b|c' 匹配a或b或c
+- `a|b|c ` 匹配a或b或c
 
-- () 字符组, 如: love(able|ers) 匹配loveable或lovers.
+- `()` 字符组, 如: `love(able|ers)` 匹配loveable或lovers.
 
-- (..)(..)\1\2 模板匹配. \1代表前面第一个模板, \2代第二个括弧里面的模板.
+- `(..)(..)\1\2` 模板匹配. `\1`代表前面第一个模板, `\2`代第二个括弧里面的模板.
 
-- 'x{m,n} =x\{m,n\}' x的字符数量在m到n个之间.
+- `x{m,n} =x\{m,n\}` x的字符数量在m到n个之间.
 
 ###fgrep
 
