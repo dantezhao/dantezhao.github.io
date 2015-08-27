@@ -63,7 +63,7 @@ tmpfs           938M   16K  938M   1% /dev/shm
 ~~~
 
 
-##一、基本环境部署
+##二、基本环境部署
 
 ###新建Hadoop用户（root用户）
 
@@ -159,18 +159,20 @@ Welcome to aliyun Elastic Compute Service!
 
 ####远程免密码登录（hadoop用户）
 
-将所有服务器上的authorized_keys，添加到z1的authorized_keys中即可。
+将所有服务器上的authorized_keys，添加到z1的authorized_keys中，然后将该authorized_keys文件分发给集群中的其它服务器即可。
+
+~~~
+[hadoop@z1 .ssh]$ scp authorized_keys hadoop@z2:/home/hadoop/.ssh/
+hadoop@z2's password: 
+authorized_keys                                                           100% 2396     2.3KB/s   00:00    
+~~~
 
 然后远程免密码登录测试
 
 ~~~
 
-[hadoop@z1 ~]$ ssh z1
-The authenticity of host 'z1 (****)' can't be established.
-RSA key fingerprint is 36:61:03:1d:60:d3:89:e9:27:56:8e:3b:16:ec:89:7e.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'z1,****' (RSA) to the list of known hosts.
-Last login: Thu Aug 27 15:10:57 2015 from ****
+[hadoop@z1 .ssh]$ ssh z2
+Last login: Thu Aug 27 15:50:09 2015 from ****
 
 Welcome to aliyun Elastic Compute Service!
 
@@ -187,7 +189,7 @@ Welcome to aliyun Elastic Compute Service!
 
 然后配置jdk环境变量
 
-在~/.bash_profile中添加如下环境变量
+在/etc/profile中添加如下环境变量
 
 ~~~
 export JAVA_HOME=/mnt/zhao/soft/jdk
@@ -198,8 +200,8 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 然后输入java、javac、java -version验证。
 
 ~~~
-[hadoop@z1 ~]$ vim .bash_profile 
-[hadoop@z1 ~]$ source .bash_profile 
+[hadoop@z1 ~]$ vim /etc/profile
+[hadoop@z1 ~]$ source /etc/profile 
 [hadoop@z1 ~]$ java -version
 java version "1.7.0_79"
 Java(TM) SE Runtime Environment (build 1.7.0_79-b15)
