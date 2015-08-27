@@ -3,7 +3,7 @@ layout: post
 author: zhao
 title:  "Linux£ºClusterShell¹¤¾ß"
 date:   2014-10-23 22:14:54
-categories: Hadoop
+categories: Linux
 ---
 
 * content
