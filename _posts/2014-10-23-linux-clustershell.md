@@ -1,10 +1,11 @@
 ---
 layout: post
 author: zhao
-title: "Linux£º¼¯Èº¹¤¾ßClusterShell"
-date:   2015-04-16 22:51:50
+title:  Linuxï¼šé›†ç¾¤è¿ç»´å·¥å…·
+date:   2014-10-23
 categories: Linux
 ---
 
 * content
 {:toc}
+
