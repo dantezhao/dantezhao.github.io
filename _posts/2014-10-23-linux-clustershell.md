@@ -1,8 +1,8 @@
 ---
 layout: post
 author: zhao
-title:  Linux：ClusterShell工具
-date:  2014-10-23 22:14:54
+title: "Linux：集群工具ClusterShell"
+date:   2015-04-16 22:51:50
 categories: Linux
 ---
 
@@ -12,7 +12,7 @@ categories: Linux
 
 ##简介
 
-实验室机房有大概百台的服务器需要管理，加上需要搭建Hadoop以及Spark集群等，因此，一个轻量级的集群管理软件就显得非常有必要了。经过一段时间的了解以及尝试，最终选择了clustershell这个软件，原因如下：
+实验室机房有大概百台的服务器需要管理，加上需要搭建Hadoop以及Spark集群等，因此，一个轻量级的集群管理软件就显得非常有必要了。经过一段时间的了解以及尝试，最终选择了clustershell这个软件，原因如下。
 
 - 安装方便。一条指令就能轻松安装。
 
@@ -40,7 +40,7 @@ yum install clustershell
 
 ###配置关键文件
 
-clustershell的配置文件在/etc/clustershell目录下，其中的groups是最常用的，我只配置了这一个文件。
+clustershell的配置文件在`/etc/clustershell`目录下，其中的groups是最常用的，我只配置了这一个文件。
 
 `all: z[1-4]`是指所有的节点，在使用的是通过`-a`来选择all
 
@@ -69,13 +69,14 @@ clush [-option] 后面就是日常的linux上执行的指令即可，没什么复杂的，都十分简单。
 但是有一点要注意，clustershell执行的类似与一次操作的指令，比如你可以touch一个新文件在所有节点上，但是你不能同时在所有节点上vim编辑一个新文件。细节还需琢磨。
 
 clush有几个比较重要的参数：
- 
-- -b : 相同输出结果合并
-- -w : 指定节点
-- -a : 所有节点
-- -g : 指定组
-- --copy : 群发文件
 
+~~~ 
+-b : 相同输出结果合并
+-w : 指定节点
+-a : 所有节点
+-g : 指定组
+--copy : 群发文件
+~~~
 
 ####输出所有节点的JAVA_HOME信息
 
@@ -124,6 +125,8 @@ jdk-7u79-linux-x64.tar.gz
 
 ####官方文档
 
-clustershell还有很多功能，但是需求驱动学习，目前我能用到的功能在上面体现了，有需求的话会再学习深一点。上传一个官方文档，有深入学习clustershell，可以下载一下。
+clustershell还有很多功能，但是需求驱动学习，目前我能用到的功能在上面体现了，有需求的话会再学习深一点。
 
-http://download.csdn.net/detail/picassolovecoding/8073989
+另外官方文档里面的额内容非常丰富，比一些教程什么的要实在的多，可以参照。
+
+https://cloud.github.com/downloads/cea-hpc/clustershell/ClusterShell_UserGuide_EN_1.6.pdf
