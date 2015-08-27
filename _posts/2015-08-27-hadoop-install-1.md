@@ -9,7 +9,7 @@ categories: Hadoop
 * content
 {:toc}
 
-##安装环境
+##一、安装环境
 
 ###服务器信息
 
@@ -17,7 +17,7 @@ categories: Hadoop
 
 ~~~java
 
-vim /etc/hosts
+[root@z1 ~]#vim /etc/hosts
 
 *.*.*.1    z1
 *.*.*.2    z2
@@ -50,8 +50,7 @@ tmpfs           938M   16K  938M   1% /dev/shm
 
 ###安装目录树
 
-```
-
+~~~
 	mnt
 	└── zhao
 		├── data
@@ -61,11 +60,10 @@ tmpfs           938M   16K  938M   1% /dev/shm
 			└── jdk
 			└── zookeeper
 		
+~~~
 
-```
 
-
-##基本环境部署
+##一、基本环境部署
 
 ###新建Hadoop用户（root用户）
 
@@ -178,7 +176,7 @@ Welcome to aliyun Elastic Compute Service!
 
 ~~~
 
-###JDK环境安装
+###JDK环境安装（hadoo用户）
 
 将jdk-7u79-linux-x64.tar.gz解压后移动到/mnt/zhao/soft中
 
