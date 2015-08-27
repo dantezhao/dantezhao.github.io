@@ -2,7 +2,7 @@
 layout: post
 author: zhao
 title:  Shell：find命令
-date:   2015-08-20 23:14:54
+date:   2014-10-20 23:14:54
 categories: Shell
 ---
 
