@@ -20,22 +20,5 @@ categories: Linux
 
 - 使用方便。clustershell的命令相对来说非常简单，只有一两个指令以及三四个参数需要记。
 
-##安装
-
-###安装clustershell
-
-安装非常简单，只有一条指令即可，一般服务器都是红帽系列的，使用yum安装。
-
-~~~
-yum install clustershell
-~~~
-
-###配置ssh无密码登录
-
-配置ssh登录相对比较简单，在搭建hadoop集群的时候都会需要这一步。
-
-###配置/etc/hosts
-
-在hosts中文件中将ip和主机名对应起来，使用比较方便。
 
 
