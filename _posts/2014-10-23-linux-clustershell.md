@@ -1,8 +1,8 @@
 ---
 layout: post
 author: zhao
-title:  "Linux：ClusterShell工具"
-date:   2014-10-23 22:14:54
+title:  Linux：ClusterShell工具
+date:  2014-10-23 22:14:54
 categories: Linux
 ---
 
@@ -41,7 +41,6 @@ yum install clustershell
 ###配置关键文件
 
 clustershell的配置文件在/etc/clustershell目录下，其中的groups是最常用的，我只配置了这一个文件。
-
 
 `all: z[1-4]`是指所有的节点，在使用的是通过`-a`来选择all
 
@@ -96,7 +95,6 @@ z[1-4] (4)
  clush -w z2,z3,z4 rm -rf /mnt/zhao/soft/jdk
 ~~~~
 
-clush -g hadoop  touch 1.txt
 
 ####集群分发文件
 
