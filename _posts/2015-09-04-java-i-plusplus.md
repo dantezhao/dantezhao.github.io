@@ -1,7 +1,7 @@
 ---
 layout: post
 author: zhao
-title:  Java：i++问题
+title:  Java：i++问题（详细分析）
 date:   2015-09-04 11:14:54
 categories: Java
 ---
@@ -154,14 +154,14 @@ i=2
 ####分析
 
 ~~~
-		 0: iconst_0      
-         1: istore_1      
-         2: iload_1       #将数值0推入栈顶
-         3: iinc          1, 1
-         6: iinc          1, 1	##自加两次
-         9: iload_1       #将数值2推入栈顶
-        10: iadd          #将0和2相加，并将结果放入栈顶
-        11: istore_1      将i赋值为2
+0: iconst_0      
+1: istore_1      
+2: iload_1       #将数值0推入栈顶
+3: iinc          1, 1
+6: iinc          1, 1	##自加两次
+9: iload_1       #将数值2推入栈顶
+10: iadd          #将0和2相加，并将结果放入栈顶
+11: istore_1      将i赋值为2
 ~~~
 
 那么我就可以理解为第一个括号里的i++，其实相当于是一个`tmp1=i++`的操作，同之前的例子一样，先将i推入栈顶，然后i自加。
@@ -174,9 +174,9 @@ i=2
 
 ####程序
 ~~~
-	int i = 0;
-	i = (i++) + (++i) + (i++);
-	System.out.println("i : " + i);
+int i = 0;
+i = (i++) + (++i) + (i++);
+System.out.println("i : " + i);
 ~~~
 
 ####结果
@@ -196,17 +196,17 @@ i=2
 ####分析
 
 ~~~
-		 0: iconst_0      
-         1: istore_1      
-         2: iload_1       
-         3: iinc          1, 1
-         6: iinc          1, 1
-         9: iload_1       
-        10: iadd          
-        11: iload_1       
-        12: iinc          1, 1
-        15: iadd          
-        16: istore_1      
+0: iconst_0      
+1: istore_1      
+2: iload_1       
+3: iinc          1, 1
+6: iinc          1, 1
+9: iload_1       
+10: iadd          
+11: iload_1       
+12: iinc          1, 1
+15: iadd          
+16: istore_1      
 ~~~
 
 整个执行的过程，基本和上面描述的一致。最后输出结果就是4。
@@ -218,9 +218,9 @@ i=2
 再测试一个例子
 
 ~~~
-	int i = 0;
-    i = (++i) + (i++) + (++i);
-    System.out.println("i : " + i);
+int i = 0;
+i = (++i) + (i++) + (++i);
+System.out.println("i : " + i);
 ~~~
 
 ####结果
@@ -238,17 +238,17 @@ i=2
 ####分析
 
 ~~~
-		 0: iconst_0      
-         1: istore_1      
-         2: iinc          1, 1
-         5: iload_1       
-         6: iload_1       
-         7: iinc          1, 1
-        10: iadd          
-        11: iinc          1, 1
-        14: iload_1       
-        15: iadd          
-        16: istore_1      
+0: iconst_0      
+1: istore_1      
+2: iinc          1, 1
+5: iload_1       
+6: iload_1       
+7: iinc          1, 1
+10: iadd          
+11: iinc          1, 1
+14: iload_1       
+15: iadd          
+16: istore_1      
 ~~~
 
 从javap的结果可以看出来，有一个顺序错了，也就是第3,4两步的顺序需要颠倒一下，页就是说在程序里面第二个括号里面的`i++`，先执行自加，然后栈顶的前两个元素才会相加。不过这个顺序小变化不影响最后结果。
