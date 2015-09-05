@@ -11,18 +11,6 @@ categories: Hadoop
 
 ##一、安装环境
 
-###服务器及节点对应关系
-
-|*|z1|z2|z3|z4|
-|-----|-----|-----|-----|
-|zookeeper|y|y|y|n|
-|namenode|y|y|n|n|
-|journalnode|y|y|y|n|
-|datanode|n|y|y|y|
-|resourcemanager|y|n|n|n|
-|nodemanager|n|y|y|y|
-
-
 ###服务器信息
 
 共四台阿里云主机，双网卡，双硬盘，有root权限。
@@ -60,10 +48,6 @@ tmpfs           938M   16K  938M   1% /dev/shm
 - Java: 1.7.0_79
 - Zookeeper: 3.4.6
 - Hadoop: 2.7.1
-
-辅助工具
-
-ClusterShell
 
 ###安装目录树
 
