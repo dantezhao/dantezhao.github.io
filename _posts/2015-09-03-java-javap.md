@@ -1,7 +1,7 @@
 ---
 layout: post
 author: zhao
-title:  Java命令行工具：javap
+title:  Java工具：javap
 date:   2015-09-03 22:14:54
 categories: Java
 ---

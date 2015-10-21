@@ -1,7 +1,7 @@
 ---
 layout: post
 author: zhao
-title:  Java命令行工具：javac
+title:  Java工具：javac
 date:   2015-09-03 22:14:54
 categories: Java
 ---
@@ -23,7 +23,6 @@ categories: Java
 
 ##说明
 
-```
 有两种方法可将源代码文件名传递给 javac
 
 如果源文件数量少，在命令行上列出文件名即可。
@@ -37,7 +36,6 @@ categories: Java
 应当将源文件安排在反映其包树结构的目录树中。例如，如果将所有的源文件放在 /workspace 中，那么 com.zhao.test.HelloWorld 的代码应该在 \workspace\com\zhao\test\HelloWorld.java 中。
 
 缺省情况下，编译器将每个类文件与其源文件放在同一目录中。可用 -d 选项（请参阅后面的选项）指定其它目标目录。
-```
 
 ##常用参数
 
