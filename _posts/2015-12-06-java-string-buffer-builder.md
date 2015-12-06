@@ -237,7 +237,7 @@ Constant pool:
 
 ####源码
 
-可以看出StringBuffer也是继承自AbstractStringBuilder，而且它的主要操作都是调用super()，操实现的，唯一不同的是在append等操作的时候添加了synchronized限定，因此是线程安全的。由于StringBuffer和StringBuilder的主要操作都是在父类AbstractStringBuilder中完成的，因此所谓的StringBuilder比StringBuffer的速度快的主要原因应该是synchronized的原因。
+可以看出StringBuffer也是继承自AbstractStringBuilder，而且它的主要操作都是调用super()来操作实现的，唯一不同的是在append等操作的时候添加了synchronized限定，因此是线程安全的。由于StringBuffer和StringBuilder的主要操作都是在父类AbstractStringBuilder中完成的，因此所谓的StringBuilder比StringBuffer的速度快的主要原因应该是synchronized造成的。
 
 ~~~
 public final class StringBuffer extends AbstractStringBuilder implements java.io.Serializable, CharSequence {
