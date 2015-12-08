@@ -9,8 +9,6 @@ categories: CLoudFoundry
 * content
 {:toc}
 
-#Cloud Foundry 单节点安装
-
 ##前言
 
 CloudFoundry在安装过程中有相当大的一部分坑都会出在网络上，因此在安装过程中如果出现一些奇奇怪怪的问题可以先考虑一下是不是被墙了。
@@ -31,7 +29,8 @@ CloudFoundry在安装过程中有相当大的一部分坑都会出在网络上�
 
 ###ruby环境安装
 
-####安装ruby/rails必要的库和编译环境
+####安装相关库和编译环境
+
 ~~~
 yum install -y build-essential openssl curl libcurl3-dev libreadline6 libreadline6-dev git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev libxslt-dev autoconf automake libtool imagemagick libmagickwand-dev libpcre3-dev libsqlite3-dev  zlib-devel
 ~~~
@@ -47,13 +46,20 @@ type rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 ~~~
 
-####ruby环境安装，首先列出可安装的版本，然后选择后进行下载编译
+####ruby环境安装
+
+首先列出可安装的版本，然后选择后进行下载编译
 ~~~
 rbenv install -l
 rbenv install 1.9.3-p448
 ~~~
 
-####设置当前使用的ruby版本并将gem的源改为淘宝镜像
+####设置ruby版本
+
+由于网络原因，在安装ruby相关的一些组件的时候可能要改变成淘宝的镜像。
+
+设置当前使用的ruby版本并将gem的源改为淘宝镜像。
+
 ~~~
 rbenv global 1.9.3-p448
 rbenv rehash
@@ -69,9 +75,7 @@ ruby -v
 
 ###安装virtualbox、vagrant
 
-分别下载，安装即可。 
-
-####验证安装是否成功：
+分别下载，安装即可。 验证安装是否成功：
 
 ~~~
 vagrant -v
@@ -80,13 +84,13 @@ VBoxManage --version。
 
 ###安装Bosh lite
 
-####安装最新版本的bosh lite
+####安装bosh lite
 
 ~~~
 gem install bosh_cli
 ~~~
 
-###从github上获取”安装包“
+###获取”安装包“
 
 ~~~
 mkdir workspace
@@ -102,41 +106,48 @@ git clone https://github.com/cloudfoundry/bosh-lite
 vagrant up --provider=virtualbox
 ~~~
 
-####此过程由于网速问题会非常慢，建议按照下面步骤执行，先下载
+注意：此过程由于网速问题会非常慢，建议按照下面步骤执行，先下载
 
 ~~~
 (https://atlas.hashicorp.com/cloudfoundry/boxes/bosh-lite/versions/9000.56.0/providers/virtualbox.box)
 ~~~
 
-####再手动本地添加 vagrant box
+####添加vagrant box
+
+手动本地添加vagrant box
 ~~~
 vagrant box add --name virtualbox ./virtualbox.box 
 ~~~
 
-####创建成功后可通过vagrant ssh登录，后用ssh 直接登录密码（vagrant）
+创建成功后可通过vagrant ssh登录，后用ssh 直接登录密码（vagrant）
 
-###添加路由规则至物理机
+###添加路由规则
 
-####在workspace/bosh-lite/bin/下执行 
+添加路由规则至物理机
+
+在workspace/bosh-lite/bin/下执行 
 
 ~~~
 ./add-route
 ~~~
 
-####至此前期准备工作完成
-----------
+至此前期准备工作完成
+
 
 ##安装CF组件
 
-###登录至虚拟机内，选择bosh target
+###登录
+
+登录至虚拟机内，选择bosh target
 
 ~~~
 bosh target 192.168.50.4 lite
 bosh login
 ~~~
 
-###从github上获取安装包
+###获取安装包
 
+从github上获取安装包
 ~~~
 cd ~/workspace
 git clone https://github.com/cloudfoundry/bosh-lite
@@ -207,22 +218,23 @@ bosh deployment /home/vagrant/workspace/bosh-lite/manifests/cf-manifest.yml
 
 ###执行部署
 
-####以上准备就绪后则可执行
+以上准备就绪后则可执行
+
 ~~~
 bosh deploy 
 ~~~
 
-####开始部署，一般会20分钟左右
+开始部署，一般会20分钟左右
 
-###7.查看部署情况
+###查看部署情况
 
 ~~~
 bosh vms 
 ~~~
 
-####来验证是否安装成功，若每个Container都为running则无异常
+验证是否安装成功，若每个Container都为running则无异常
 
-####此时可登录使用验证
+####可登录使用验证
 ~~~
 cf api --skip-ssl-validation https://api.10.244.0.34.xip.io
 cf auth admin admin
