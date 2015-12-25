@@ -15,12 +15,15 @@ categories: Java
 
 ##环境
 
-```
+
 Distributor ID:	Ubuntu
+
 Description:	Ubuntu 14.04.1 LTS
+
 Release:	14.04
+
 Codename:	trusty
-```
+
 
 ##安装软件列表
 
@@ -37,23 +40,22 @@ Codename:	trusty
 #安装
 
 ##sogou: 
-  
-  安装搜狗输入法之前需要先安装fcitx
-  
-  ~~~
-  sudo apt-get update
-  sudo apt-get install fcitx
-  ~~~
-  
-  安装后，可以在“系统设置->语言支持”里面选择默认使用fcitx输入法框架
-  
-  ~~~
-  download sogou.deb:http://pinyin.sogou.com/linux/
-  sudo dpkg -i sogoupinyin.deb 
-  ~~~
+
+安装搜狗输入法之前需要先安装fcitx
+
+~~~
+sudo apt-get update
+sudo apt-get install fcitx
+~~~
+
+安装后，可以在“系统设置->语言支持”里面选择默认使用fcitx输入法框架
+
+~~~
+download sogou.deb:http://pinyin.sogou.com/linux/
+sudo dpkg -i sogoupinyin.deb 
+~~~
 
 ##wiznote
-
 安装
 ~~~
 sudo add-apt-repository ppa:wiznote-team
@@ -64,49 +66,47 @@ sudo apt-get install wiznote
 
 ##chrome:
 
-
-  ~~~
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i google-chrome-stable_current_amd64.deb 
-  #如果出现安装缺少依赖的错误，之下下面语句
-  sudo apt-get install -f
-  ~~~
+~~~
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb 
+#如果出现安装缺少依赖的错误，之下下面语句
+sudo apt-get install -f
+~~~
 
 ##kate:
+一个比较不错的文本编辑器，安装比较方便，可以和vim配合使用。至少写个博客什么的还是比较方便的。
 
-  一个比较不错的文本编辑器，安装比较方便，可以和vim配合使用。至少写个博客什么的还是比较方便的。
-  
-  ~~~
-  sudo apt-get install kate
-  ~~~
-  
+~~~
+sudo apt-get install kate
+~~~
+ 
 ##openvpn:
 
-  openvpn可以直接下载。
-  ~~~
-  sudo apt-get install openvpn
-  #把vpn的文件放入/etc/openvpn目录下
-  #启动
-  sudo openvpn /etc/openvpn/client.ovpn
-  ~~~
+openvpn可以直接下载。
+~~~
+sudo apt-get install openvpn
+#把vpn的文件放入/etc/openvpn目录下
+#启动
+sudo openvpn /etc/openvpn/client.ovpn
+~~~
 
 ##jdk
 
-  修改/etc/profile配置文件，添加环境变量
-  
-  ```
-  export
-  JAVA_HOME=/opt/jdk1.7.0
-  export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-  export PATH=$JAVA_HOME/bin:$PATH
-  ```
-  然后验证
-  
-  ~~~
-  source /etc/profile
-  java -version
-  ~~~
-  
+修改/etc/profile配置文件，添加环境变量
+ 
+```
+export
+JAVA_HOME=/opt/jdk1.7.0
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+```
+然后验证
+ 
+~~~
+source /etc/profile
+java -version
+~~~
+
 ##git,svn
 
 ~~~
