@@ -86,6 +86,7 @@ sudo apt-get install kate
 ##openvpn:
 
 openvpn可以直接下载。
+
 ~~~
 sudo apt-get install openvpn
 #把vpn的文件放入/etc/openvpn目录下
