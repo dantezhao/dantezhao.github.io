@@ -98,12 +98,13 @@ sudo openvpn /etc/openvpn/client.ovpn
 
 修改/etc/profile配置文件，添加环境变量
  
-```
+~~~
 export
 JAVA_HOME=/opt/jdk1.7.0
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
-```
+~~~
+
 然后验证
  
 ~~~
