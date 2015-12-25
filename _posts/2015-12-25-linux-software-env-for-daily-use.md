@@ -56,12 +56,15 @@ sudo dpkg -i sogoupinyin.deb
 ~~~
 
 ##wiznote
+
 安装
+
 ~~~
 sudo add-apt-repository ppa:wiznote-team
 sudo apt-get update
 sudo apt-get install wiznote
 ~~~
+
 然后输入WizNote启动即可，注意大小写。
 
 ##chrome:
