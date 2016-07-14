@@ -1,0 +1,875 @@
+---
+author: zhao
+title:  Java工具：javac、javap、jmap、jhat、jstack、jstat
+date:   2015-09-01 22:14:54
+categories: code
+tags:
+	- java
+	- tools
+description: 突然有一天发现，之前认为学到的知识其实连冰山一角都算不上。
+---
+# javac
+
+## 前言
+
+> 突然有一天发现，之前认为学到的知识其实连冰山一角都算不上。
+
+## 简介
+
+我们平常编写的Java代码需要先被编译为二进制的字节码，例如Hello.java源文件会被编译为Hello.class字节码文件，然后才能被Java虚拟机执行。
+
+在此之前一般都是用Eclipse直接进行Java开发了，命令行用的非常少，基本上也就是在知道javac后面跟上`.java`文件。现在接触到了更多的Java知识，有时候需要远程调试Java程序，或者需要查看`.class`文件，发现javac这个工具有很多需要关注和学习的地方。
+
+`javac`在`$JAVA_HOME/bin`中，一般在安装好jdk，并配置好环境变量后就可以直接使用了。
+
+## 说明
+
+有两种方法可将源代码文件名传递给 javac
+
+如果源文件数量少，在命令行上列出文件名即可。
+
+如果源文件数量多，则将源文件名列在一个文件中，名称间用空格或回车行来进行分隔。然后在 javac 命令行中使用该列表文件名，文件名前冠以 @ 字符。
+
+源代码文件名称必须含有 .java 后缀，类文件名称必须含有 .class 后缀，源文件和类文件都必须有识别该类的根名。例如，名为 MyClass 的类将写在名为 HelloWorld.java的源文件中，并被编译为字节码类文件 HelloWorld.class。
+
+内部类定义产生附加的类文件。这些类文件的名称将内部类和外部类的名称结合在一起，例如 HelloWorld$InnerHelloworld.class。
+
+应当将源文件安排在反映其包树结构的目录树中。例如，如果将所有的源文件放在 /workspace 中，那么 com.zhao.test.HelloWorld 的代码应该在 \workspace\com\zhao\test\HelloWorld.java 中。
+
+缺省情况下，编译器将每个类文件与其源文件放在同一目录中。可用 -d 选项（请参阅后面的选项）指定其它目标目录。
+
+## 常用参数
+
+下面介绍几个常用或者说自己会用的参数。
+
+```
+
+用法: javac <options> <source files>
+其中, 可能的选项包括:
+  -g                         生成所有调试信息，-g参数在debug的时候会使用，特别是在使用Eclipse的进行debug的时候，里面的一些选项其实对应的就是-g参数。
+  -g:none                    不生成任何调试信息
+  -g:{lines,vars,source}     只生成某些调试信息
+  -nowarn                    不生成任何警告
+  -verbose                   输出有关编译器正在执行的操作的消息
+  -classpath <路径>            指定查找用户类文件和注释处理程序的位置
+  -cp <路径>                   指定查找用户类文件和注释处理程序的位置
+  -d <目录>                    指定放置生成的类文件的位置
+  -s <目录>                    指定放置生成的源文件的位置
+  -encoding <编码>             指定源文件使用的字符编码
+  -source <发行版>              提供与指定发行版的源兼容性
+  -target <发行版>              生成特定 VM 版本的类文件
+  -version                   版本信息
+  -help                      输出标准选项的提要
+
+```
+  
+## 例子
+
+### 例1
+
+先来个大致参数用法的例子
+
+```
+[root@z1 i++issue]# javac -source 1.7 -target 1.7 -d ./classdir/ -verbose -encoding UTF-8 -g:vars SumPlusTest.java 
+[parsing started RegularFileObject[SumPlusTest.java]]
+[parsing completed 13ms]
+[search path for source files: .,/mnt/zhao/soft/jdk/lib/dt.jar,/mnt/zhao/soft/jdk/lib/tools.jar]
+[search path for class files: /mnt/zhao/soft/jdk/jre/lib/resources.jar,/mnt/zhao/soft/jdk/jre/lib/rt.jar,/mnt/zhao/soft/jdk/jre/lib/sunrsasign.jar,/mnt/zhao/soft/jdk/jre/lib/jsse.jar,/mnt/zhao/soft/jdk/jre/lib/jce.jar,/mnt/zhao/soft/jdk/jre/lib/charsets.jar,/mnt/zhao/soft/jdk/jre/lib/jfr.jar,/mnt/zhao/soft/jdk/jre/classes,/mnt/zhao/soft/jdk/jre/lib/ext/dnsns.jar,/mnt/zhao/soft/jdk/jre/lib/ext/sunpkcs11.jar,/mnt/zhao/soft/jdk/jre/lib/ext/sunec.jar,/mnt/zhao/soft/jdk/jre/lib/ext/localedata.jar,/mnt/zhao/soft/jdk/jre/lib/ext/zipfs.jar,/mnt/zhao/soft/jdk/jre/lib/ext/sunjce_provider.jar,.,/mnt/zhao/soft/jdk/lib/dt.jar,/mnt/zhao/soft/jdk/lib/tools.jar]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class)]]
+[checking SumPlusTest]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/System.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/io/FilterOutputStream.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuilder.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class)]]
+[loading ZipFileIndexFileObject[/mnt/zhao/soft/jdk/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuffer.class)]]
+[wrote RegularFileObject[./classdir/SumPlusTest.class]]
+[total 639ms]
+```  
+
+### -d参数
+
+设置类文件的目标目录。如果某个类是一个包的组成部分，则 javac 将把该类文件放入反映包名的子目录中，必要时创建目录。例如，如果指定 `-d ./HelloWorldDir` 并且该类名叫 `com.zhao.test`，那么类文件就叫作 `./HelloWorldDir/package com.zhao.test.HelloWorld.class`。
+
+若未指定 -d 选项，则 javac 将把类文件放到与源文件相同的目录中。
+
+注意： -d 选项指定的目录不会被自动添加到用户类路径中。
+
+```
+[root@z1 java]# cat HelloWorld.java 
+package com.zhao.test;
+
+public class HelloWorld {
+	public static void main(String[] args){
+		System.out.println("Helloworld!");
+	}
+}
+
+[root@z1 java]# javac -d HelloWorldDir/ HelloWorld.java 
+
+[root@z1 java]# tree HelloWorldDir/
+HelloWorldDir/
+└── com
+    └── zhao
+        └── test
+            └── HelloWorld.class
+
+3 directories, 1 file
+[root@z1 java]# 
+```
+
+# javap
+
+## 简介
+
+javap，是JDK自带的反汇编工具，用于将Java字节码文件反汇编为Java源代码。
+
+具体到我所能用的功能来说，就是Java编译器为我们生成的字节码。特别是在针对一些比较细节的问题，比如java的中间缓存变量机制或者String的一些问题时，通过javap来来分析，会直观的多
+
+## 常用参数
+
+下面介绍几个常用或者说自己会用的参数。
+
+```
+用法: javap <options> <classes>
+可能的选项包括:
+  -help  --help  -?        打印用法信息
+  -version                 版本信息
+  -v  -verbose             打印附加信息
+  -l                       打印行号和本地变量表
+  -public                  仅显示public类和成员
+  -protected               显示protected/public类和成员
+  -package                 显示package/protected/public类和成员(默认值)
+  -p  -private             显示所有的类和成员
+  -c                       反汇编代码
+  -s                       打印内部类型签名
+  -sysinfo                 显示将被处理的类的系统信息(路径，大小，日期，MD5 哈希值)
+  -constants               显示static final常量
+  -classpath <path>        指定查找用户类文件的位置
+  -bootclasspath <path>    覆盖由引导类加载器所加载的类文件的位置
+```
+  
+## 例子
+
+### 无参数
+
+没什么太多的信息
+
+```
+[root@z1 classdir]# javap SumPlusTest 
+public class SumPlusTest {
+  public SumPlusTest();
+  public static void main(java.lang.String[]);
+}
+```
+
+### -c参数
+
+反汇编字节码文件为JVM可以识别、执行的字节码命令
+
+```
+[root@z1 classdir]# javap -c SumPlusTest
+public class SumPlusTest {
+  public SumPlusTest();
+    Code:
+       0: aload_0       
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return        
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: iconst_1      
+       1: istore_1      
+       2: iconst_1      
+       3: istore_2      
+       4: iconst_1      
+       5: istore_3      
+       6: iconst_1      
+       7: istore        4
+       9: iinc          1, 1
+      12: iinc          2, 1
+      15: iload_3       
+      16: iinc          3, 1
+      19: istore_3      
+      20: iinc          4, 1
+      23: iload         4
+      25: istore        4
+      27: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      30: new           #3                  // class java/lang/StringBuilder
+      33: dup           
+      34: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+      37: ldc           #5                  // String a : 
+      39: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: iload_1       
+      43: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      46: ldc           #8                  // String \nb : 
+      48: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      51: iload_2       
+      52: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      55: ldc           #9                  // String \nc : 
+      57: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      60: iload_3       
+      61: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      64: ldc           #10                 // String \nd : 
+      66: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      69: iload         4
+      71: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      74: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      77: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      80: return        
+}
+```
+
+### -verbose参数
+
+-verbose打印方法参数、常量池、栈区等各种信息。
+
+具体内容，放在i++相关的中间缓存变量机制中说明。
+
+```
+[root@z1 classdir]# javap -verbose SumPlusTest
+Classfile /mnt/workspace/java/i++issue/classdir/SumPlusTest.class
+  Last modified Sep 3, 2015; size 794 bytes
+  MD5 checksum 3a406dc81fe69722d53ce74ef96516a4
+public class SumPlusTest
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #14.#30        //  java/lang/Object."<init>":()V
+   #2 = Fieldref           #31.#32        //  java/lang/System.out:Ljava/io/PrintStream;
+   #3 = Class              #33            //  java/lang/StringBuilder
+   #4 = Methodref          #3.#30         //  java/lang/StringBuilder."<init>":()V
+   #5 = String             #34            //  a : 
+   #6 = Methodref          #3.#35         //  java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #7 = Methodref          #3.#36         //  java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+   #8 = String             #37            //  \nb : 
+   #9 = String             #38            //  \nc : 
+  #10 = String             #39            //  \nd : 
+  #11 = Methodref          #3.#40         //  java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #12 = Methodref          #41.#42        //  java/io/PrintStream.println:(Ljava/lang/String;)V
+  #13 = Class              #43            //  SumPlusTest
+  #14 = Class              #44            //  java/lang/Object
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LocalVariableTable
+  #19 = Utf8               this
+  #20 = Utf8               LSumPlusTest;
+  #21 = Utf8               main
+  #22 = Utf8               ([Ljava/lang/String;)V
+  #23 = Utf8               args
+  #24 = Utf8               [Ljava/lang/String;
+  #25 = Utf8               a
+  #26 = Utf8               I
+  #27 = Utf8               b
+  #28 = Utf8               c
+  #29 = Utf8               d
+  #30 = NameAndType        #15:#16        //  "<init>":()V
+  #31 = Class              #45            //  java/lang/System
+  #32 = NameAndType        #46:#47        //  out:Ljava/io/PrintStream;
+  #33 = Utf8               java/lang/StringBuilder
+  #34 = Utf8               a : 
+  #35 = NameAndType        #48:#49        //  append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #36 = NameAndType        #48:#50        //  append:(I)Ljava/lang/StringBuilder;
+  #37 = Utf8               \nb : 
+  #38 = Utf8               \nc : 
+  #39 = Utf8               \nd : 
+  #40 = NameAndType        #51:#52        //  toString:()Ljava/lang/String;
+  #41 = Class              #53            //  java/io/PrintStream
+  #42 = NameAndType        #54:#55        //  println:(Ljava/lang/String;)V
+  #43 = Utf8               SumPlusTest
+  #44 = Utf8               java/lang/Object
+  #45 = Utf8               java/lang/System
+  #46 = Utf8               out
+  #47 = Utf8               Ljava/io/PrintStream;
+  #48 = Utf8               append
+  #49 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #50 = Utf8               (I)Ljava/lang/StringBuilder;
+  #51 = Utf8               toString
+  #52 = Utf8               ()Ljava/lang/String;
+  #53 = Utf8               java/io/PrintStream
+  #54 = Utf8               println
+  #55 = Utf8               (Ljava/lang/String;)V
+{
+  public SumPlusTest();
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0       
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return        
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+               0       5     0  this   LSumPlusTest;
+
+  public static void main(java.lang.String[]);
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=5, args_size=1
+         0: iconst_1      
+         1: istore_1      
+         2: iconst_1      
+         3: istore_2      
+         4: iconst_1      
+         5: istore_3      
+         6: iconst_1      
+         7: istore        4
+         9: iinc          1, 1
+        12: iinc          2, 1
+        15: iload_3       
+        16: iinc          3, 1
+        19: istore_3      
+        20: iinc          4, 1
+        23: iload         4
+        25: istore        4
+        27: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        30: new           #3                  // class java/lang/StringBuilder
+        33: dup           
+        34: invokespecial #4                  // Method java/lang/StringBuilder."<init>":()V
+        37: ldc           #5                  // String a : 
+        39: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        42: iload_1       
+        43: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        46: ldc           #8                  // String \nb : 
+        48: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        51: iload_2       
+        52: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        55: ldc           #9                  // String \nc : 
+        57: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        60: iload_3       
+        61: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        64: ldc           #10                 // String \nd : 
+        66: invokevirtual #6                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        69: iload         4
+        71: invokevirtual #7                  // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        74: invokevirtual #11                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        77: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        80: return        
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+               0      81     0  args   [Ljava/lang/String;
+               2      79     1     a   I
+               4      77     2     b   I
+               6      75     3     c   I
+               9      72     4     d   I
+}
+```
+
+# jhat
+## 简介
+
+### 说明
+
+用于对JAVA heap进行离线分析的工具，他可以对不同虚拟机中导出的heap信息文件进行分析，如LINUX上导出的文件可以拿到WINDOWS上进行分析，可以查找诸如内存方面的问题。
+
+### 使用
+
+jhat结合jmap使用，有网页的界面可以查看。
+
+```
+[root@z1 week1]# jhat -help
+Usage:  jhat [-stack <bool>] [-refs <bool>] [-port <port>] [-baseline <file>] [-debug <int>] [-version] [-h|-help] <file>
+
+	-J<flag>          Pass <flag> directly to the runtime system. For
+			  example, -J-mx512m to use a maximum heap size of 512MB
+	-stack false:     Turn off tracking object allocation call stack.
+	-refs false:      Turn off tracking of references to objects
+	-port <port>:     Set the port for the HTTP server.  Defaults to 7000
+	-exclude <file>:  Specify a file that lists data members that should
+			  be excluded from the reachableFrom query.
+	-baseline <file>: Specify a baseline object dump.  Objects in
+			  both heap dumps with the same ID and same class will
+			  be marked as not being "new".
+	-debug <int>:     Set debug level.
+			    0:  No debug output
+			    1:  Debug hprof file parsing
+			    2:  Debug hprof file parsing, no server
+	-version          Report version number
+	-h|-help          Print this help and exit
+	<file>            The file to read
+
+For a dump file that contains multiple heap dumps,
+you may specify which dump in the file
+by appending "#<number>" to the file name, i.e. "foo.hprof#3".
+
+All boolean options default to "true"
+```
+
+## 例子
+
+运行下面的指令后，可以在浏览器中打开相应的端口查看。
+
+```
+[root@z1 week1]# jhat -J-Xmx4g jmaptest.dat 
+Reading from jmaptest.dat...
+Dump file created Wed Oct 21 15:42:36 CST 2015
+Snapshot read, resolving...
+Resolving 1915686 objects...
+Chasing references, expect 383 dots...............................................................................................................................................................................................................................................................................................................................................................................................
+Eliminating duplicate references...............................................................................................................................................................................................................................................................................................................................................................................................
+Snapshot resolved.
+Started HTTP server on port 7000
+Server is ready.
+```
+
+# jmap
+
+## 简介
+
+### 说明
+
+打印出某个java进程（使用pid）内存内的所有‘对象’的情况（如：产生那些对象，及其数量）
+
+### 使用
+
+常用的指令如：`jmap -heap pid`和 `jmap -dump:live,format=b,file=jmaptest.dat 1535`。
+
+前者查看内存的信息，后者导出镜像文件，可以结合jhat使用分析。
+
+```
+[root@z1 week1]# jmap
+Usage:
+    jmap [option] <pid>
+        (to connect to running process)
+    jmap [option] <executable <core>
+        (to connect to a core file)
+    jmap [option] [server_id@]<remote server IP or hostname>
+        (to connect to remote debug server)
+
+where <option> is one of:
+    <none>               to print same info as Solaris pmap
+    -heap                to print java heap summary
+    -histo[:live]        to print histogram of java object heap; if the "live"
+                         suboption is specified, only count live objects
+    -permstat            to print permanent generation statistics
+    -finalizerinfo       to print information on objects awaiting finalization
+    -dump:<dump-options> to dump java heap in hprof binary format
+                         dump-options:
+                           live         dump only live objects; if not specified,
+                                        all objects in the heap are dumped.
+                           format=b     binary format
+                           file=<file>  dump heap to <file>
+                         Example: jmap -dump:live,format=b,file=heap.bin <pid>
+    -F                   force. Use with -dump:<dump-options> <pid> or -histo
+                         to force a heap dump or histogram when <pid> does not
+                         respond. The "live" suboption is not supported
+                         in this mode.
+    -h | -help           to print this help message
+    -J<flag>             to pass <flag> directly to the runtime system
+```
+
+## 例子
+
+```
+[root@z1 week1]# jmap -dump:live,format=b,file=jmaptest.dat 1535
+Dumping heap to /mnt/zhao/workspace/jmaptest.dat ...
+Heap dump file created
+```
+
+```
+[root@z1 week1]# jmap -heap 1535
+Attaching to process ID 1535, please wait...
+Debugger attached successfully.
+Server compiler detected.
+JVM version is 24.79-b02
+
+using thread-local object allocation.
+Mark Sweep Compact GC
+
+Heap Configuration:
+   MinHeapFreeRatio = 40
+   MaxHeapFreeRatio = 70
+   MaxHeapSize      = 492830720 (470.0MB)
+   NewSize          = 1310720 (1.25MB)
+   MaxNewSize       = 17592186044415 MB
+   OldSize          = 5439488 (5.1875MB)
+   NewRatio         = 2
+   SurvivorRatio    = 8
+   PermSize         = 21757952 (20.75MB)
+   MaxPermSize      = 85983232 (82.0MB)
+   G1HeapRegionSize = 0 (0.0MB)
+
+Heap Usage:
+New Generation (Eden + 1 Survivor Space):
+   capacity = 9240576 (8.8125MB)
+   used     = 7314720 (6.975860595703125MB)
+   free     = 1925856 (1.836639404296875MB)
+   79.15870179521276% used
+Eden Space:
+   capacity = 8257536 (7.875MB)
+   used     = 6331680 (6.038360595703125MB)
+   free     = 1925856 (1.836639404296875MB)
+   76.67759486607143% used
+From Space:
+   capacity = 983040 (0.9375MB)
+   used     = 983040 (0.9375MB)
+   free     = 0 (0.0MB)
+   100.0% used
+To Space:
+   capacity = 983040 (0.9375MB)
+   used     = 0 (0.0MB)
+   free     = 983040 (0.9375MB)
+   0.0% used
+tenured generation:
+   capacity = 20512768 (19.5625MB)
+   used     = 2652424 (2.5295486450195312MB)
+   free     = 17860344 (17.03295135498047MB)
+   12.930600102336262% used
+Perm Generation:
+   capacity = 21757952 (20.75MB)
+   used     = 2514048 (2.3975830078125MB)
+   free     = 19243904 (18.3524169921875MB)
+   11.554616905120483% used
+
+737 interned Strings occupying 48224 bytes.
+```
+
+# jstack
+
+## 简介
+
+### 功能
+
+jstack命令主要用于输出线程信息。
+
+我们主要是看线程状态，在jstack中是可以得到遍历的。通常使用jstack -l <pid> 命令，如果未输出线程信息，则可以尝试使用-F参数强制输出。
+
+### 使用方法
+
+```
+[root@z1 week1]# jstack 
+Usage:
+    jstack [-l] <pid>
+        (to connect to running process)
+    jstack -F [-m] [-l] <pid>
+        (to connect to a hung process)
+    jstack [-m] [-l] <executable> <core>
+        (to connect to a core file)
+    jstack [-m] [-l] [server_id@]<remote server IP or hostname>
+        (to connect to a remote debug server)
+
+Options:
+    -F  to force a thread dump. Use when jstack <pid> does not respond (process is hung)
+    -m  to print both java and native frames (mixed mode)
+    -l  long listing. Prints additional information about locks
+    -h or -help to print this help message
+```
+
+
+## 例子
+
+写一个死锁的例子，通过jstack查看线程的信息。
+
+
+### 程序
+
+网上随便找了一个小的死锁例子。
+
+程序中MyThread1和MyThread2都申请了两个Resource，他们之间存在一个死锁的情况。
+
+```
+public class DeadLock {  
+    public static void main(String[] args) {  
+        Resource r1= new Resource();  
+        Resource r2= new Resource();  
+        //每个线程都拥有r1,r2两个对象  
+        Thread myTh1 = new MyThread1(r1,r2);  
+        Thread myTh2 = new MyThread2(r1,r2);  
+        myTh1.start();  
+        myTh2.start();  
+    }  
+}  
+  
+class Resource{  
+    private int i;  
+}  
+  
+class MyThread1 extends Thread{  
+    private Resource r1,r2;  
+    public MyThread1(Resource r1, Resource r2) {  
+        this.r1 = r1;  
+        this.r2 = r2;  
+    }  
+  
+    @Override  
+    public void run() {  
+        while(true){  
+        //先获得r1的锁，再获得r2的锁     
+        synchronized (r1) {  
+            System.out.println("1号线程获取了r1的锁");  
+            synchronized (r2) {  
+                System.out.println("1号线程获取了r2的锁");  
+            }  
+        }  
+        }  
+    }  
+      
+}  
+  
+class MyThread2 extends Thread{  
+    private Resource r1,r2;  
+    public MyThread2(Resource r1, Resource r2) {  
+        this.r1 = r1;  
+        this.r2 = r2;  
+    }  
+  
+    @Override  
+    public void run() {
+        while(true){  
+        //先获得r2的锁，再获得r1的锁  
+        synchronized (r2) {  
+            System.out.println("2号线程获取了r2的锁");  
+            synchronized (r1) {  
+                System.out.println("2号线程获取了r1的锁");  
+            }  
+        }  
+        }  
+    }  
+      
+}  
+```
+
+### 输出结果
+
+可以看到，两个线程在获取资源的时候发生了死锁。
+
+```
+1号线程获取了r1的锁
+2号线程获取了r2的锁
+```
+
+### 线程信息
+
+信息中有很多是java自己的进程，每个进程的状态也有显示。
+
+在信息最后面的部分，可以看到MyThread1和MyThread2发生死锁的具体情况。
+
+```
+[root@z1 week1]# jstack -l 1382
+2015-10-21 15:14:29
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.79-b02 mixed mode):
+
+"Attach Listener" daemon prio=10 tid=0x00007f72bc001000 nid=0x5ad waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"DestroyJavaVM" prio=10 tid=0x00007f72e0008800 nid=0x567 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-1" prio=10 tid=0x00007f72e00a8000 nid=0x571 waiting for monitor entry [0x00007f72d78f7000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at MyThread2.run(DeadLock.java:53)
+	- waiting to lock <0x00000000dd84e7e0> (a Resource)
+	- locked <0x00000000dd84e7f0> (a Resource)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0" prio=10 tid=0x00007f72e00a6000 nid=0x570 waiting for monitor entry [0x00007f72d79f8000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at MyThread1.run(DeadLock.java:31)
+	- waiting to lock <0x00000000dd84e7f0> (a Resource)
+	- locked <0x00000000dd84e7e0> (a Resource)
+
+   Locked ownable synchronizers:
+	- None
+
+"Service Thread" daemon prio=10 tid=0x00007f72e008c800 nid=0x56e runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"C2 CompilerThread1" daemon prio=10 tid=0x00007f72e008a000 nid=0x56d waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"C2 CompilerThread0" daemon prio=10 tid=0x00007f72e0087800 nid=0x56c waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Signal Dispatcher" daemon prio=10 tid=0x00007f72e0085800 nid=0x56b runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Finalizer" daemon prio=10 tid=0x00007f72e0064800 nid=0x56a in Object.wait() [0x00007f72d7ffe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000000dd804858> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <0x00000000dd804858> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+   Locked ownable synchronizers:
+	- None
+
+"Reference Handler" daemon prio=10 tid=0x00007f72e0062800 nid=0x569 in Object.wait() [0x00007f72dc14d000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000000dd804470> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <0x00000000dd804470> (a java.lang.ref.Reference$Lock)
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" prio=10 tid=0x00007f72e005e800 nid=0x568 runnable 
+
+"VM Periodic Task Thread" prio=10 tid=0x00007f72e0097800 nid=0x56f waiting on condition 
+
+JNI global references: 107
+
+
+Found one Java-level deadlock:
+=============================
+"Thread-1":
+  waiting to lock monitor 0x00007f72d0003828 (object 0x00000000dd84e7e0, a Resource),
+  which is held by "Thread-0"
+"Thread-0":
+  waiting to lock monitor 0x00007f72d00062c8 (object 0x00000000dd84e7f0, a Resource),
+  which is held by "Thread-1"
+
+Java stack information for the threads listed above:
+===================================================
+"Thread-1":
+	at MyThread2.run(DeadLock.java:53)
+	- waiting to lock <0x00000000dd84e7e0> (a Resource)
+	- locked <0x00000000dd84e7f0> (a Resource)
+"Thread-0":
+	at MyThread1.run(DeadLock.java:31)
+	- waiting to lock <0x00000000dd84e7f0> (a Resource)
+	- locked <0x00000000dd84e7e0> (a Resource)
+
+Found 1 deadlock.
+```
+
+# jstat
+
+## 简介
+
+### 功能
+
+一个极强的监视VM内存工具，可以用来监视VM内存内的各种堆和非堆的大小及其内存使用量。
+
+jstat是JDK自带的一个轻量级小工具。全称“Java Virtual Machine statistics monitoring tool”。
+
+它位于java的bin目录下，主要利用JVM内建的指令对Java应用程序的资源和性能进行实时的命令行的监控，包括了对Heap size和垃圾回收状况的监控。
+
+### 使用方法
+
+jstat比较常用的使用方法：`jstat -gcutil ${PID} 2000`，这条指令的意思是，每隔2000的时间间隔统计GC的信息。
+
+相信的使用方法如下：
+
+```
+[root@z1 ~]# jstat -help
+Usage: jstat -help|-options
+       jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+
+Definitions:
+  <option>      An option reported by the -options option
+  <vmid>        Virtual Machine Identifier. A vmid takes the following form:
+                     <lvmid>[@<hostname>[:<port>]]
+                Where <lvmid> is the local vm identifier for the target
+                Java virtual machine, typically a process id; <hostname> is
+                the name of the host running the target Java virtual machine;
+                and <port> is the port number for the rmiregistry on the
+                target host. See the jvmstat documentation for a more complete
+                description of the Virtual Machine Identifier.
+  <lines>       Number of samples between header lines.
+  <interval>    Sampling interval. The following forms are allowed:
+                    <n>["ms"|"s"]
+                Where <n> is an integer and the suffix specifies the units as 
+                milliseconds("ms") or seconds("s"). The default units are "ms".
+  <count>       Number of samples to take before terminating.
+  -J<flag>      Pass <flag> directly to the runtime system.
+
+```
+
+jstat有很多可选的option，使用方法同上。
+
+```
+-class
+-compiler
+-gc
+-gccapacity
+-gccause
+-gcnew
+-gcnewcapacity
+-gcold
+-gcoldcapacity
+-gcpermcapacity
+-gcutil
+-printcompilation
+```
+
+### 参数介绍
+
+常用的参数含义如下
+
+- S0：年轻代中第一个survivor（幸存区）已使用的占当前容量百分比
+- S1：年轻代中第二个survivor（幸存区）已使用的占当前容量百分比
+- E：年轻代中Eden（伊甸园）已使用的占当前容量百分比
+- O：old代已使用的占当前容量百分比
+- P：perm代已使用的占当前容量百分比
+- YGC：从应用程序启动到采样时年轻代中gc次数
+- YGCT：从应用程序启动到采样时年轻代中gc所用时间(s)
+- FGC：从应用程序启动到采样时old代(全gc)gc次数
+- FGCT：从应用程序启动到采样时old代(全gc)gc所用时间(s)
+- GCT：从应用程序启动到采样时gc用的总时间(s)
+
+## 例子
+
+```
+[root@z1 ~]# jstat -gcutil 872 2000
+  S0     S1     E      O      P     YGC     YGCT    FGC    FGCT     GCT   
+ 22.60   0.00  95.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  95.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  95.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  97.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  97.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  97.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  97.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  99.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  99.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  99.94   0.00  11.42      2    0.003     0    0.000    0.003
+ 22.60   0.00  99.94   0.00  11.42      2    0.003     0    0.000    0.003
+  0.00  21.78   2.02   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   2.02   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   2.02   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   2.02   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   4.04   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   4.04   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   4.04   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   4.04   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   6.05   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   6.05   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   6.05   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   6.05   0.00  11.42      3    0.005     0    0.000    0.005
+  0.00  21.78   8.06   0.00  11.42      3    0.005     0    0.000    0.005
+```
+
+
+
+
+
