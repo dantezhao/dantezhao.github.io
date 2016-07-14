@@ -5,9 +5,6 @@ categories: Hacker
 tags:  sql hacker
 ---
 
-* content
-{:toc}
-
 ## 0x00 背景
 
 菜鸟级别的sql注入。
@@ -21,6 +18,7 @@ tags:  sql hacker
 ### sql注入漏洞检测三部曲
 
 **第一步：**
+
 ```
 http://www.example.com/TeachView.asp?id=1'
 #网页应该会变化，一般出现个错误界面，里面有错误代码,比如下面的信息：
