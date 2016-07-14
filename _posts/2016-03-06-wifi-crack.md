@@ -72,16 +72,13 @@ airodump-ng --ivs -w filename -c wlan1mon
 ```
 
 ```
-  BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
-                                                                                                                                                    
+  BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID                                                                                                                                                   
  5C:63:BF:61:8B:C8  -58      639      761    0   6  54e. WPA2 CCMP   PSK  quan
  30:F3:35:87:24:BC  -66      330        0    0   4  54e  WPA2 CCMP   PSK  CU_57w8
  C0:61:18:22:8B:2B  -65      620      547    0   6  54e. WPA2 CCMP   PSK  tunshi6
  64:09:80:4B:FC:2C  -71      223     2184    1   1  54e  WPA2 CCMP   PSK  Xiaomi_tunshi7
- ......
-                                                                                                                                                     
- BSSID              STATION            PWR   Rate    Lost    Frames  Probe
-                                                                                                                                                     
+ ......                                                                                                                                                   
+ BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                                                                                                                                    
  5C:63:BF:61:8B:C8  A4:C4:94:DB:10:1A  -44    0 - 2e     0      153  quan
  C0:61:18:22:8B:2B  74:2F:68:4A:7B:7B  -84    0e- 1      0      558  tunshi6
  64:09:80:4B:FC:2C  AC:B5:7D:D1:00:62   -1    1e- 0      0      154
