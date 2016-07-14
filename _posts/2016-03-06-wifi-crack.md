@@ -13,6 +13,10 @@ tags:  wifi hacker
 
 wifi破解工具有很多，比如wifite、aircrack、cowpatty、reaver等等，其中wifite是最傻瓜式的，但是个人尝试很久，没有破解成功一次，我就很好奇，是我的方式不对？cowpatty只管破解，因此还是要和air结合起来用。reaver破解的非常非常慢，一次要很久，但是一般都能搞定。这次先用aircrack。
 
+
+
+
+
 ## 0x01 准备
 
 装逼要用全套的，特意买的3070的网卡，专用破解。
@@ -113,8 +117,9 @@ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
 发送了好几次攻击，过了二十多分钟才获取到握手包。可以看到下面获取到了handshake
 
 ```
-  CH  4 ][ Elapsed: 25 mins ][ 2016-03-06 13:34 ][ WPA handshake: 64:09:80:4B:FC:2C                                                                
- BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID                                                                  
+  CH  4 ][ Elapsed: 25 mins ][ 2016-03-06 13:34 ][ WPA handshake: 64:09:80:4B:FC:2C
+
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
  5C:63:BF:61:8B:C8  -58     1973      909    0   6  54e. WPA2 CCMP   PSK  quan
  30:F3:35:87:24:BC  -64     1062        0    0   4  54e  WPA2 CCMP   PSK  CU_57w8
  64:09:80:4B:FC:2C  -73      707     4411    0   1  54e  WPA2 CCMP   PSK  Xiaomi_tunshi7
