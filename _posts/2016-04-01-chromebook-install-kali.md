@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "chromebook install kali"
+title:  "Chromebook Install Kali"
 categories: Hacker
 tags:  chrome google hacker
 ---
@@ -134,4 +134,3 @@ sudo apt-get install ettercap-graphical
 
 ******
 2016-04-01 13:00:00 hzct
-******
