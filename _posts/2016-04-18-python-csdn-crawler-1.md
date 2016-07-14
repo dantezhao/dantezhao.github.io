@@ -14,6 +14,9 @@ tags:  python crawler
 
 后来发现自己执行力不够，这些都没开工。自从来了公司，相应公司“自我驱动”的号召，执行力稳步增长。赶着上周五的晚上的兴致，动手开始写了一个爬虫。下面记录一下整个纠结的过程。
 
+
+
+
 **补充github项目地址：** [csdn_blog_spider](https://github.com/zhaodedong/csdn_blog_spider)
 
 
