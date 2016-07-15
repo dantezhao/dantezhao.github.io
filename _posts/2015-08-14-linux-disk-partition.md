@@ -12,6 +12,10 @@ tags:  linux disk
 
 parted命令可以划分单个分区大于2T的GPT格式的分区，也可以划分普通的MBR分区，fdisk命令对于大于2T的分区无法划分（大于2.2TB的存储空间用fdisk不支持，需要采用parted来分区），所以用fdisk无法看到parted划分的GPT格式的分区。
 
+
+
+
+
 ##parted和fdisk在操作上的区别
 
 下面通过两个例子来说明。
