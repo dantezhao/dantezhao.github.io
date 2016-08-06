@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jdbc源码详解（二）：获取connection"
+title:  "Jdbc源码详解（二）：获取connection"
 categories: 编程语言
 tags:  sql jdbc java
 ---

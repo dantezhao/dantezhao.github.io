@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jdbc源码详解（一）：示例+Driver注册流程"
+title:  "Jdbc源码详解（一）：示例+Driver注册流程"
 categories: 编程语言
 tags:  sql jdbc java
 ---

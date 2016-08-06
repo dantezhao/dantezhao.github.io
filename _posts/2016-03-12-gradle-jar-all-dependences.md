@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "gradle打jar包，包含所有依赖"
+title:  "Gradle打jar包，包含所有依赖"
 categories: 编程语言
 tags: gradle jvm
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "mysql查看数据的的物理大小的两种方法"
+title:  "Mysql查看数据的的物理大小的两种方法"
 categories: Database
 tags:  mysql sql
 ---

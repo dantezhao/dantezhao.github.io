@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Impala实践之9：invalidate metadata详细使用方法说明"
+title:  "Impala实践之九：invalidate metadata详细使用方法说明"
 categories: 数据平台
 tags: impala 元数据
 ---

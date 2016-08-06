@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "python实现csdn博客爬虫之1：整体设计思路"
+title:  "Python实现csdn博客爬虫之1：整体设计思路"
 categories: 编程语言
 tags:  python crawler
 ---

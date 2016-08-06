@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "java和scala互操作之不能读取嵌套object"
+title:  "Java和scala互操作之不能读取嵌套object"
 categories: 编程语言
 tags: java scala
 ---

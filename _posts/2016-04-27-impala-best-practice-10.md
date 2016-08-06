@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Impala实践之10：impala最佳实践（转、译、整理）"
+title:  "Impala实践之十：impala最佳实践（转、译、整理）"
 categories: 数据平台
 tags: impala
 ---

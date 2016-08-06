@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "python实现csdn博客爬虫之2：抓取所有用户名"
+title:  "Python实现csdn博客爬虫之2：抓取所有用户名"
 categories: 编程语言
 tags:  python crawler
 ---

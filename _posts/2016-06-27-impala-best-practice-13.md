@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Impala实践之10：Impala建表时的关键字"
+title:  "Impala实践之十三：Impala建表时的关键字"
 categories: 数据平台
 tags: impala
 ---

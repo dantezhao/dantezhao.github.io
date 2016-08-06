@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Impala实践之10：impala压缩方式测试"
+title:  "Impala实践之十二：impala压缩方式测试"
 categories: 数据平台
 tags: impala compress
 ---

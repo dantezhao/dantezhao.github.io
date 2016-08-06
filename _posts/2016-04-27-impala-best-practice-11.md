@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Impala实践之10：parquet性能测试"
+title:  "Impala实践之十一：parquet性能测试"
 categories: 数据平台
 tags: impala parquet
 ---
