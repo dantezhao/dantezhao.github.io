@@ -122,6 +122,7 @@ connection-url=jdbc:mysql://host:3306
 connection-user=zhanghao
 connection-password=mima
 ```
+
 ### 3.设置启动脚本
 
 需要下载一个jar包，然后重命名为presto，并赋予执行权限。以后可以用它来连接即可。
