@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Mysql小记"
-categories: Mysql
-tags:  mysql database
+categories: Database
+tags:  mysql
 ---
 
 * content
@@ -46,10 +46,10 @@ flush privilege;
 ### 开启远程登录
 
 ```
-1.GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION; 
+1.GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;
 2.FLUSH PRIVILEGES;
 3.关闭防火墙，或者开放制定的3306端口
-service iptables stop 
+service iptables stop
 ```
 
 ### 远程登录

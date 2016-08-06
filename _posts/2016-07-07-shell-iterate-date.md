@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Shell：遍历输出日期范围（指定两个日期间的所有日期）"
-categories: Shell
+categories: Linux
 tags:  linux shell
 ---
 

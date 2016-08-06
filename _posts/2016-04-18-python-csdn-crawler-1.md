@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "python实现csdn博客爬虫之1：整体设计思路"
-categories: Python
-tags:  python crawler 
+categories: 编程语言
+tags:  python crawler
 ---
 
 * content
@@ -47,7 +47,7 @@ tags:  python crawler
 ```
 解决：
 ```
-sudo apt-get install python-dev 
+sudo apt-get install python-dev
 ```
 
 
@@ -159,6 +159,3 @@ sudo apt-get install libffi-dev
 
 ******
 2016-04-18 23:35:00 hnds
-
-
-

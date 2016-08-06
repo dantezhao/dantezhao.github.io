@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "jdbc源码详解（一）：示例+Driver注册流程"
-categories: Jdbc
-tags:  sql jdbc
+categories: 编程语言
+tags:  sql jdbc java
 ---
 
 * content
@@ -133,7 +133,7 @@ Class.forName("com.mysql.jdbc.Driver");
     private final static CopyOnWriteArrayList<DriverInfo> registeredDrivers = new CopyOnWriteArrayList<DriverInfo>();
 
     ......
-    
+
     private static Connection getConnection(
         String url, java.util.Properties info, ClassLoader callerCL) throws SQLException {
         ClassLoader callerCL = caller != null ? caller.getClassLoader() : null;
@@ -161,7 +161,7 @@ Class.forName("com.mysql.jdbc.Driver");
                 } catch (SQLException ex) {
                     ......
                 }
-            } 
+            }
             ......
         }
     ......
@@ -306,12 +306,3 @@ java.sql.DriverManager.registerDriver(new Driver());
 
 ******
 2016-06-07 17:00:00 hzct
-
-
-
-
-
-
-
-
-

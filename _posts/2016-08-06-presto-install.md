@@ -102,7 +102,7 @@ presto可以设置不同的connector，用以连接不同的数据源。我配�
 
 文件名hive.properties。
 
-**注意：** 
+**注意：**
 
 - connector.name：我用的是cdh5，因此选择该连接器。
 - hive.metastore.uri：hive元数据节点
@@ -172,7 +172,7 @@ presto> desc hive.trace.apptalk;
  content    | varchar |               
  id         | varchar |   
  ...        |   ...   |     
- k          | varchar | Partition Key 
+ k          | varchar | Partition Key
 (13 rows)
 
 Query 20160805_115429_00022_nk48v, FINISHED, 2 nodes
@@ -186,7 +186,7 @@ Splits: 2 total, 2 done (100.00%)
 presto> select * from mysql.test.test limit 10;
  id |       name       |                ***                |             ***             |       ***        | *** |          ***        
 ----+------------------+-------------------------------------+----------------------------------+-------------------------+--------+-------------------------
-         
+
 (10 rows)
 
 ```

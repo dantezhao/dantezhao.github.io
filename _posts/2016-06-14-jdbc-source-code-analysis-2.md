@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "jdbc源码详解（二）：获取connection"
-categories: Jdbc
-tags:  sql jdbc
+categories: 编程语言
+tags:  sql jdbc java
 ---
 
 * content
@@ -43,7 +43,7 @@ private static Connection getConnection(
                         println("getConnection returning " + aDriver.driver.getClass().getName());
                         return (con);
                     }
-                } 
+                }
     ......
     }
 ```
@@ -98,7 +98,7 @@ public java.sql.Connection connect(String url, Properties info) throws SQLExcept
         try {
             Connection newConn = com.mysql.jdbc.ConnectionImpl.getInstance(host(props), port(props), props, database(props), url);
             return newConn;
-        } 
+        }
     ......
     }
 ```
@@ -292,9 +292,9 @@ class NetworkResources {
 
     //MysqlIO构造函数
     public MysqlIO(String host, int port, Properties props, String socketFactoryClassName, MySQLConnection conn, int socketTimeout, int useBufferRowSizeThreshold) throws IOException, SQLException {
-        
+
         ......
-        
+
         try {
             // 创建Socket对象,和MySql服务器建立连接  
             this.mysqlConnection = this.socketFactory.connect(this.host, this.port, props);
@@ -318,7 +318,7 @@ class NetworkResources {
                 this.mysqlInput = new BufferedInputStream(this.mysqlConnection.getInputStream(), 16384);
             }
 
-            //封装ScoketOutputStream输出流 
+            //封装ScoketOutputStream输出流
             this.mysqlOutput = new BufferedOutputStream(this.mysqlConnection.getOutputStream(), 16384);
 
             this.isInteractiveClient = this.connection.getInteractiveClient();
@@ -371,26 +371,3 @@ MysqlIO在获取到连接后，以NetworkResources的方式返回，这个Networ
 
 ******
 2016-06-14 14:23:00 hzct
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

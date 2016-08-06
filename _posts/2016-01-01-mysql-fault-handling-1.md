@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Mysql：一次mysql错误处理"
-categories: Mysql
-tags:  mysql database
+categories: Database
+tags:  mysql
 ---
 
 * content

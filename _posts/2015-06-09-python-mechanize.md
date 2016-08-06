@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python：Mechanize模拟浏览器行为"
-categories: Python
+categories: 编程语言
 tags:  python mechanize
 ---
 
@@ -80,7 +80,7 @@ r = br.open('https://www.baidu.com/')
 #获取百度的表单，从中找到输入汉字的位置
 for f in br.forms():
     print f
-    
+
 br.select_form(nr = 0)
 
 #搜索关键字“火车”
@@ -98,7 +98,7 @@ brr=br.response().read()
  - 先登录http://examplehome.com/login界面，启用cookie记录，记录cookie信息。
  - 登录界面之后，cookie中已保存了登录信息，获取该cookie信息，再打开http://examplehome.com/ID=001，获取表单信息。
  - 在相应位置填入信息，提交，最后查看结果。
- 
+
 
 ```python
 import sys
@@ -138,7 +138,7 @@ br.select_form(nr = 0)
 #获取表单信息，我已知道信息，故注释掉
 #for f in br.forms():
     #print f
-    
+
 #account info
 br.form['username'] = "name"
 br.form['password'] = 'pawd'

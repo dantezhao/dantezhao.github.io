@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "mysql查看数据的的物理大小的两种方法"
-categories: Mysql
-tags:  mysql sql database
+categories: Database
+tags:  mysql sql
 ---
 
 * content
@@ -23,7 +23,7 @@ tags:  mysql sql database
 information_schema存放了不少有用的信息。
 
 ```
-mysql> use information_schema 
+mysql> use information_schema
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 ```
@@ -109,9 +109,9 @@ srwxrwxrwx 1 mysql mysql    0 11月 10 14:37 mysql.sock
 -rw-rw---- 1 mysql mysql 18K 4月   1 18:38 tablename.frm
 
 ```
-来源： 
-http://blog.csdn.net/zhaodedong 
-http://zhaodedong.leanote.com 
+来源：
+http://blog.csdn.net/zhaodedong
+http://zhaodedong.leanote.com
 http://zhaodedong.com
 
 ******

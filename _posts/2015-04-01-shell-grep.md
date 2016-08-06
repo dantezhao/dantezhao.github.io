@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Shell：grep/egrep/fgrep"
-categories: Shell
+categories: Linux
 tags:  linux shell grep 
 ---
 

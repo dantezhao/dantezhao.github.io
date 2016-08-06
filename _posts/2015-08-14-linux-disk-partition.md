@@ -112,7 +112,7 @@ Number  Start   End     Size    File system  Name   Flags
 
  (parted) mkpart   					//由于还有剩余空间，建立第二个分区
  Partition name?  []? part2
- File system type?  [ext2]? 
+ File system type?  [ext2]?
 Start? 20.0GB     
 End? 21.5GB       
  (parted) print    
@@ -169,8 +169,8 @@ Maximum filesystem blocks=4294967296
 149 block groups
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
-Superblock backups stored on blocks: 
-	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
 	4096000
 
 Writing inode tables: done                            
@@ -197,7 +197,7 @@ Maximum filesystem blocks=369098752
 11 block groups
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
-Superblock backups stored on blocks: 
+Superblock backups stored on blocks:
 	32768, 98304, 163840, 229376, 294912
 
 Writing inode tables: done                            
@@ -312,7 +312,7 @@ Command action
    p   primary partition (1-4)
 p										//新建主分区
 Partition number (1-4): 1				
-First cylinder (1-2610, default 1): 
+First cylinder (1-2610, default 1):
 Using default value 1
 Last cylinder, +cylinders or +size{K,M,G} (1-2610, default 2610): +19G
 
@@ -324,17 +324,17 @@ e										//再新建一个扩展分区
 Partition number (1-4): 2
 First cylinder (2482-2610, default 2482): 				//直接默认起始位置
 Using default value 2482
-Last cylinder, +cylinders or +size{K,M,G} (2482-2610, default 2610): 
+Last cylinder, +cylinders or +size{K,M,G} (2482-2610, default 2610):
 Using default value 2610
 
 Command (m for help): n					
-Command action	
+Command action
    l   logical (5 or over)
    p   primary partition (1-4)
 l									//在扩展分区上新建逻辑分区，直接使用所有的空间
-First cylinder (2482-2610, default 2482): 
+First cylinder (2482-2610, default 2482):
 Using default value 2482
-Last cylinder, +cylinders or +size{K,M,G} (2482-2610, default 2610): 
+Last cylinder, +cylinders or +size{K,M,G} (2482-2610, default 2610):
 Using default value 2610
 
 Command (m for help): p
@@ -400,8 +400,8 @@ Maximum filesystem blocks=4294967296
 153 block groups
 32768 blocks per group, 32768 fragments per group
 8144 inodes per group
-Superblock backups stored on blocks: 
-	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
 	4096000
 
 Writing inode tables: done                            
@@ -424,7 +424,7 @@ Maximum filesystem blocks=268435456
 8 block groups
 32768 blocks per group, 32768 fragments per group
 8096 inodes per group
-Superblock backups stored on blocks: 
+Superblock backups stored on blocks:
 	32768, 98304, 163840, 229376
 
 Writing inode tables: done                            
@@ -476,7 +476,7 @@ Maximum filesystem blocks=268435456
 8 block groups
 32768 blocks per group, 32768 fragments per group
 8096 inodes per group
-Superblock backups stored on blocks: 
+Superblock backups stored on blocks:
 	32768, 98304, 163840, 229376
 
 Writing inode tables: done                            
@@ -490,4 +490,3 @@ This filesystem will be automatically checked every 38 mounts or
 
 ******
 2015-08-14 22:14:54
-

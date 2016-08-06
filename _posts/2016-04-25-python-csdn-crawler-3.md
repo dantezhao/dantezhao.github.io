@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "python实现csdn博客爬虫之3：抓取所有博文"
-categories: Python
-tags:  python crawler 
+categories: 编程语言
+tags:  python crawler
 ---
 
 * content

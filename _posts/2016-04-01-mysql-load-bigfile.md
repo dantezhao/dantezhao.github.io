@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Mysql大文件导入方法以及性能对比"
-categories: Mysql
-tags:  mysql sql database
+categories: Database
+tags:  mysql sql
 ---
 
 * content
@@ -96,7 +96,7 @@ mysql> show variables like 'sql_mode';
 把它改成了ANSI就行了。
 
 ```
-set @@sql_mode=ANSI; 
+set @@sql_mode=ANSI;
 ```
 
 ## sqoop
@@ -104,7 +104,7 @@ set @@sql_mode=ANSI;
 从sqoop导入到mysql之前已经把数据放在了hdfs的`/tmp/dante/test`中。
 
 ```
-sqoop-export --connect jdbc:mysql://mysql:3306/dante --username root --password root --table tablename --export-dir /tmp/dante/test --input-fields-terminated-by ',' 
+sqoop-export --connect jdbc:mysql://mysql:3306/dante --username root --password root --table tablename --export-dir /tmp/dante/test --input-fields-terminated-by ','
 ```
 
 ### 结果
@@ -170,22 +170,3 @@ java.sql.SQLException: null,  message from server: "Host 'test' is not allowed t
 
 ******
 2016-04-01 19:00:00 hzct
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

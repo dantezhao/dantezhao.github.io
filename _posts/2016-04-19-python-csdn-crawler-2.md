@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "python实现csdn博客爬虫之2：抓取所有用户名"
-categories: Python
-tags:  python crawler 
+categories: 编程语言
+tags:  python crawler
 ---
 
 * content
@@ -167,11 +167,7 @@ while queue:
 2016-04-19 23:08:00 hzct
 
 
-来源： 
-http://blog.csdn.net/zhaodedong 
-http://zhaodedong.leanote.com 
+来源：
+http://blog.csdn.net/zhaodedong
+http://zhaodedong.leanote.com
 http://zhaodedong.com
-
-
-
-

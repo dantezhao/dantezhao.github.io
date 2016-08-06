@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mysql/sql练习题"
-categories: Mysql
+categories: Database
 tags:  mysql sql
 ---
 
@@ -103,7 +103,7 @@ insert into SC values('10' , '04' , 59);
 
 select a.*, b.score, c.score
 from student a, sc b,sc c
-where a.sid = b.sid and a.sid = c.sid 
+where a.sid = b.sid and a.sid = c.sid
 and b.cid ='01' and c.cid = '02'
 and b.score > c.score;
 
@@ -116,7 +116,7 @@ and b.score > c.score;
 ```
 
 select a.*, b.score, c.score
-from student a 
+from student a
 left join sc b on a.sid = b.sid and b.cid = '01'
 left join sc c on a.sid = c.sid and c.cid = '02'
 where b.score > ifnull(c.score,0);
@@ -215,7 +215,7 @@ where tname like '李%';
 
 ```
 select student.sname, sc.score, sc.cid
-from student join sc on student.sid = sc.sid 
+from student join sc on student.sid = sc.sid
 where sc.cid='01'
 order by sc.score desc limit 3;
 ```
@@ -232,14 +232,14 @@ order by sc.score desc limit 3;
 
 ```
 select a.sname, a.score,  a.cid
-from 
+from
 (select Student.sname, sc.score, sc.cid
-from Student 
-join SC on Student.Sid = SC.Sid) as a 
-join 
+from Student
+join SC on Student.Sid = SC.Sid) as a
+join
 (select distinct sc.score
 from SC
-order by score 
+order by score
 desc limit 3) as b
 on a.score = b.score;
 ```
@@ -250,10 +250,10 @@ on a.score = b.score;
 
 ```
 select a.sname, a.score,  a.cid
-from 
+from
 (select Student.sname, sc.score, sc.cid
-from Student 
-join SC on Student.Sid = SC.Sid) as a 
+from Student
+join SC on Student.Sid = SC.Sid) as a
 where a.score in
 (select distinct sc.score from sc
 order by sc.score
@@ -272,8 +272,8 @@ desc limit 3
 select score, count(*)
 from SC
 group by score
-order by count(*) 
-desc limit 3; 
+order by count(*)
+desc limit 3;
 ```
 
 
@@ -284,8 +284,8 @@ desc limit 3;
 **答案**
 
 ```
-select a.sid, a.sname, count(b.cid) 
-from student a left join sc b 
+select a.sid, a.sname, count(b.cid)
+from student a left join sc b
 on a.sid=b.sid
 group by a.sid,a.sname;
 ```
@@ -309,11 +309,3 @@ on t.tid = a.ctid;
 
 ******
 2015-10-28 23:14:54 于bh xzl
-
-
-
-
-
-
-
-

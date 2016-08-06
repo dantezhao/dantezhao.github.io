@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "python实现Kindle笔记（标注）导出工具"
-categories: Python
+categories: 编程语言
 tags:  python kindle
 ---
 
