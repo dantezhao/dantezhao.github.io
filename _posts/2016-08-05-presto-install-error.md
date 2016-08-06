@@ -12,6 +12,9 @@ tags: presto 即席查询
 
 presto安装过程中错误记录。
 
+
+
+
 ## 错误记录
 
 ### 1.错误：
@@ -66,7 +69,7 @@ stack overflow上的说明如下
 目前的确是这样的，jps一下就可以看到PrestoServer的进程在，干掉重来即可。
 
 
-3. 错误：
+### 3. 错误：
 
 ```
 presto:default> show schemas from hive;
