@@ -2,7 +2,7 @@
 layout: post
 title:  "如何使用doxygen+graphviz阅读源码"
 categories: Technique
-tags: 源码阅读 doxygen
+tags: 源码 doxygen
 ---
 
 * content

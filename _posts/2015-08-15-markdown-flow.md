@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown画流程图"
-categories: 数据平台
+categories: Technique
 tags: markdown
 ---
 
