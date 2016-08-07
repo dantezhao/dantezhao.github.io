@@ -50,6 +50,7 @@ mysql> show grants for 'root'@localhost;
 ```
 
 我就想了，mysql总该有一个专门记录权限的地方吧。
+
 ```
 mysql> use mysql;
 Database changed
@@ -134,5 +135,5 @@ ERROR 1290 (HY000): The MySQL server is running with the --skip-grant-tables opt
 然后经妹子提醒，在无权限登录模式下，可以用update来修改root用户的权限，接下来就OK了。update的语句google可搜。
 
 
-******
-2016-01-01 22:14:54 于 hzct
+***
+2016-01-01 22:14:54  hzct
