@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "浅谈MySQL架构"
+title:  "MySQL设计架构"
 categories: Database
 tags: mysql
 ---
@@ -15,6 +15,9 @@ tags: mysql
 感觉MySQL这种优秀的关系型数据库还不是很深入的了解，有点罪过，趁着周末补一些
 
 稍微整理一点MySQL架构相关的的知识点。自己用visio画一个书上的图贴出来。
+
+
+
 
 ## MySQL基本架构
 
