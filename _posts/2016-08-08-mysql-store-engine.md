@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "MySQL存储引擎"
-categories: Life
-tags:
+categories: Database
+tags: mysql
 ---
 
 * content
@@ -11,6 +11,9 @@ tags:
 ## 前言
 
 > 除非用到某些InnoDB不具备的特性，并且没有其他方法可以替代，否则优先选择InnoDB存储引擎。
+
+
+
 
 ## 什么是存储引擎
 
