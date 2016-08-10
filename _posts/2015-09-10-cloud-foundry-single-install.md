@@ -2,7 +2,7 @@
 layout: post
 title:  "Cloud Foundry：单机版安装"
 categories: 云计算
-tags: impala
+tags: cloudfoundry
 ---
 
 * content
