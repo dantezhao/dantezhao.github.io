@@ -16,7 +16,9 @@ tags: jvm j2ee java
 
 
 ## 错误汇总
+
 ### 错误1
+
 ```
 WARN: HHH000374: Could not unbind factory from JNDI
 org.hibernate.engine.jndi.JndiException: Error parsing JNDI name []
@@ -63,6 +65,7 @@ Exception in thread "main" org.hibernate.MappingException: Unknown entity: org.c
 ```
 
 解决：
+
 ```
   在配置文件里面添加<mapping class="org.crazyit.app.domain.News"/>
 ```
@@ -107,7 +110,9 @@ Exception in thread "main" org.hibernate.HibernateException: The database return
     at com.mt.SchemaTestMain.main(SchemaTestMain.java:45)
 
 ```
+
 解决：
+
 ```
 指定主键
 ```
@@ -198,6 +203,7 @@ at java.lang.ClassLoader.loadClass(Unknown Source)
 sessionfactory需要自动装配，装配到dao层
 
 解决：添加红色的两部分
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <beans default-autowire="byName" xmlns="http://www.springframework.org/schema/beans"
@@ -225,11 +231,13 @@ Error occured processing XML 'org/springframework/transaction/interceptor/Transa
 
 
 解决：
+
 ```
 加入aopalliance-1.0.jar
 ```
 
 ### 错误6
+
 ```
 java.lang.NoClassDefFoundError: org/aspectj/weaver/reflect/ReflectionWorld$ReflectionWorldException
 at java.lang.Class.getDeclaredMethods0(Native Method)
@@ -358,7 +366,6 @@ at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.
 
 
 
-
 ### 错误8
 
 ```
@@ -420,6 +427,7 @@ java.lang.NullPointerException
 这是hibernate的一个bug，目前尚未解决。https://hibernate.atlassian.net/browse/HHH-7395
 
 解决：
+
 删除该行即可
 
 
@@ -447,6 +455,7 @@ WEB-INF文件夹下的内容无法对外发布，所以，如果你引用了带�
 
 
 ### 错误10
+
 ```
 HTTP Status 500 - Error instantiating servlet class org.springframework.web.servlet.DispatcherServlet
 
@@ -841,9 +850,11 @@ java.lang.Thread.run(Unknown Source)
 
 
 ### 错误12
+
 ```
 No mapping found for HTTP request with URI [/saas/view/userlist.do] in DispatcherServlet with name 'springmvc'
 ```
+
 标签错误，html结尾多了>
 
 ### 错误13
@@ -1061,6 +1072,7 @@ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
 
 ### 错误15
 
+
 ```
 七月 31, 2015 12:18:20 上午 org.apache.catalina.core.StandardContext listenerStart
 严重: Exception sending context initialized event to listener instance of class org.springframework.web.context.ContextLoaderListener
@@ -1108,6 +1120,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 
 
 解决：
+
 ```
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
@@ -1211,6 +1224,7 @@ Caused by: java.lang.IllegalArgumentException: 'sessionFactory' or 'hibernateTem
 
 
 ### 错误17
+
 ```
 javax.el.PropertyNotFoundException: Property 'status' not readable on type com.saas.admin.modules.sys.entity.Order
     at javax.el.BeanELResolver$BeanProperty.read(BeanELResolver.java:357)
@@ -1361,6 +1375,7 @@ at org.apache.catalina.startup.Catalina.load(Catalina.java:504)
 at org.apache.catalina.startup.Catalina.load(Catalina.java:538)
 ... 6 more
 ```
+
 解决：
 
 把servlet-api.jar放到路径里面。
