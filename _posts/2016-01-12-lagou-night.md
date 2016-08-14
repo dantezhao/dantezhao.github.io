@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "拉勾之夜记录"
-categories: Life
+categories: Technique
 tags: 
 ---
 

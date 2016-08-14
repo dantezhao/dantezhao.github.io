@@ -431,7 +431,7 @@ java.lang.NullPointerException
 删除该行即可
 
 
-### 错误9：
+### 错误9
 
 ```
 HTTP Status 404 - /streetManager/index.jsp
@@ -953,7 +953,8 @@ Apache Tomcat/8.0.21
 
 解决
 仔细检查出错位置，我的原因是多了一个空格
-<c:forEach items="${list} " var="staff">
+`<c:forEach items="${list} " var="staff">`
+
 
 ### 错误14
 

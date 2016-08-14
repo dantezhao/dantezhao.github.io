@@ -2,7 +2,7 @@
 layout: post
 title:  "数据研发工作阶段性总结：（2015-12-21 至 2016-08-04）"
 categories: 数据平台
-tags: summary
+tags: Summary
 ---
 
 * content

@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "The Data Revolution Speaker（Hadoop之父Doug Cutting在清华的讲座）"
-categories: Life
-tags: hadop
+categories: Technique
+tags: hadoop
 ---
 
 * content
