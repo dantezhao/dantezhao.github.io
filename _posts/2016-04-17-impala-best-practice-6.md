@@ -2,7 +2,7 @@
 layout: post
 title:  "Impala实践之六：使用Rest Api"
 categories: 数据平台
-tags: impala 
+tags: impala
 ---
 
 * content
