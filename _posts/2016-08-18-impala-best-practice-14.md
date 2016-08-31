@@ -36,7 +36,7 @@ Impala集群的状态开始飘红，有两台节点不能正常使用。
 
 Impala节点还重启失败
 
-![](leanote://file/getImage?fileId=57b52d3ad1427d3a08000000)
+![](http://obg1rl2km.bkt.clouddn.com/impala-14-error)
 
 ### 阶段三
 

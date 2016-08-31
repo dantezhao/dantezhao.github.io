@@ -123,7 +123,9 @@ tags: impala shell
 
 `jdbc:hive2://host:25003/;auth=noSasl`
 
-###　Impala-shell任务
+
+### Impala-shell任务
+
 
 使用举例：
 
