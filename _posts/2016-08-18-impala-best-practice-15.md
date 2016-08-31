@@ -7,6 +7,7 @@ tags: impala shell
 
 * content
 {:toc}
+
 ## 前言
 
 由于前期大家使用Impala的时候都比较随意，再加上对Impala的原理不清楚，因此在使用的过程中对Impala带来了很大的压力。
