@@ -17,6 +17,9 @@ hdfs dfs -rm -skipTrash /path/to/file/you/want/to/remove/permanently
 
 如果不加`-skipTrash`，删除的目录会放入`/user/hdfs/.Trash`中。有专门的配置项来指定什么时候清空回收站。
 
+
+
+
 ## 清空回收站
 
 ```

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "kafka丢数据、重复数据分析"
+title:  "Kafka丢数据、重复数据分析"
 categories: 数据平台
 tags: kafka
 ---
@@ -11,6 +11,8 @@ tags: kafka
 ## 前言
 
 填别人的坑again。数据不正常，追到kafka这里了，分析了很久的程序，做一个总结，关于丢数据和重复数据。
+
+
 
 
 ## 丢数据
