@@ -23,11 +23,19 @@ tags: kafka
 
 那么换一种方法，我们手动提交offset，这时会出现另外一种重复数据的情况，后面会提到。
 
-## 重复数据
+
+## 重复数据1
 
 假设一个场景，我们使用High Level Consumer API来消费kafka中的数据，每当消费N条数据并成功插入Mysql后，我们手动执行一下`consumer.commitSync()`操作，提交一次offset。这种情况是先消费成功后再提交，因此不再丢数据了，但是会出现重复数据的情况。
 
 但是！**如果当程序消费了一定数量的数据之后，还没来得及提交offset，程序crash了，那么下次再启动程序之后，就会重复消费这部分数据。**如果程序不够稳健，是可以出现十分多的重复数据的。
+
+## 重复数据2
+
+最近又抓出来一种特殊的出现重复数据的情况。出现在补数据的时候。
+
+假设我们的数据流是从Flume抽取数据到Kafka，然后Spark Streaming来读取Kafka的数据。假设我们在运行一段时间后，发现数据有问题，然后想重新把近两天的数据消费一下。这时候我们会用Flume把原始数据重新抽过来，那么问题来了。因为在Kafka中已经持久化了一部分数据，如果这些数据没有消费完，然后Flume又重新抽了一遍，那么这部分数据就会重复。
+
 
 ## 总结
 
@@ -50,6 +58,6 @@ tags: kafka
 
 转载请注明： 转载自赵德栋的 [**个人主页**](http://zhaodedong.com) [**CSDN博客**](http://zhaodedong.com)
 
-作者：赵德栋，[作者介绍](http://zhaodedong.com/about/)
+作者：赵德栋，[作者介绍](http://zhaodedong.com/about/) 
 
 本博客的文章集合：http://zhaodedong.com/category/
