@@ -37,7 +37,7 @@ disqus_shortname: #zhaodedong
 # xxxxx字符串
 baidu_tongji_id: #fb5097699b88274c1488ba3073973962
 #google 分析追踪id
-google_analytics_id: GTM-TVG2JP2  
+google_analytics_id: UA-72125195-2
 
 # Build settings
 markdown: kramdown
