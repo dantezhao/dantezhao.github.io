@@ -93,10 +93,3 @@ nohup java -classpath $CLASS_PATH com.***.Consumer -Xms1024M -Xmx6000M -XX:PermS
 2016-09-22 00:14:00 rljp
 
 
-***
-
-转载请注明： 转载自赵德栋的 [**个人主页**](http://zhaodedong.com) [**CSDN博客**](http://zhaodedong.com)
-
-作者：赵德栋，[作者介绍](http://zhaodedong.com/about/)
-
-本博客的文章集合：http://zhaodedong.com/category/
