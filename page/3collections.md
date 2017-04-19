@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Collections
-permalink: /collection/
+title: ReadMe
+permalink: /readme/
 icon: bookmark
 ---
 
