@@ -2,7 +2,7 @@
 layout: post
 title:  "Java：String、StringBuffer和StringBuilder"
 categories: 代码之熵
-tags: Jvm
+tags: Java
 ---
 
 * content

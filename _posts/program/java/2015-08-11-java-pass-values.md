@@ -2,7 +2,7 @@
 layout: post
 title:  "Java：详解传值和传引用"
 categories: 代码之熵
-tags: Jvm
+tags: Java
 ---
 
 * content

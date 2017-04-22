@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Flume NG 编程实践"
-categories: 数据平台
+categories: 漫步云端
 tags: Flume
 ---
 

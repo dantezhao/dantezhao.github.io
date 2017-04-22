@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Java：虚拟机指令总结"
-categories: 编程语言
-tags: java jvm
+categories: 代码之熵
+tags: Java
 ---
 
 * content

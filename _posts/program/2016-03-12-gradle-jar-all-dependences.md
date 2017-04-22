@@ -2,7 +2,7 @@
 layout: post
 title:  "Gradle打jar包，包含所有依赖"
 categories: 代码之熵
-tags: Gradle Jvm
+tags: Gradle Java
 ---
 
 * content

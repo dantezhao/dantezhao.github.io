@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Kafka丢数据、重复数据分析"
-categories: 数据平台
-tags: kafka
+categories: 漫步云端
+tags: Kafka
 ---
 
 * content

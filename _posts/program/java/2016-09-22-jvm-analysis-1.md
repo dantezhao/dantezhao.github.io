@@ -2,7 +2,7 @@
 layout: post
 title:  "一次jVM性能调优记录"
 categories: 代码之熵
-tags: Jvm
+tags: Java
 ---
 
 * content
@@ -92,5 +92,3 @@ nohup java -classpath $CLASS_PATH com.***.Consumer -Xms1024M -Xmx6000M -XX:PermS
 
 ***
 2016-09-22 00:14:00 rljp
-
-
