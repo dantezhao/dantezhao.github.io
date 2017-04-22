@@ -2,7 +2,7 @@
 layout: post
 title:  "一次jVM性能调优记录"
 categories: 代码之熵
-tags: jvm
+tags: Jvm
 ---
 
 * content
@@ -88,6 +88,7 @@ jdk的各种工具我一直都有笔记做过记录，但是没有做过比较�
 ```
 nohup java -classpath $CLASS_PATH com.***.Consumer -Xms1024M -Xmx6000M -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+UseParallelGC XX:+UseParallelOldGC &
 ```
+
 
 ***
 2016-09-22 00:14:00 rljp
