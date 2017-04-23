@@ -5,6 +5,10 @@ categories: 代码之熵
 tags: Java Scala Clojure
 ---
 
+* content
+{:toc}
+
+
 ## 0x00 前言
 
 
