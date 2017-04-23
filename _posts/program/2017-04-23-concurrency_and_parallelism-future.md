@@ -1,11 +1,9 @@
-
 ---
 layout: post
 title:  "漫谈并发编程：Future模型（Java、Clojure、Scala多语言角度分析）"
 categories: 代码之熵
 tags: Java Scala Clojure
 ---
-
 
 ## 0x00 前言
 

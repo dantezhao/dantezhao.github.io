@@ -6,18 +6,18 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Dante Zhao‘s Blog
+title: Dantezhao‘s Blog
 brief-intro: Try Harder, Do the Hacker's Way
 baseurl: "" # the subpath of your site, e.g. /blog
-url: http://dantezhao.com #http://zhaodedong.github.io/ #"http://dantezhao.com" # the base hostname & protocol for your site
+url: http://dantezhao.com #http://dantezhao.github.io/ #"http://dantezhao.com" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
 twitter_username:
 facebook_username:
-github_username:  zhaodedong
-email: zhaodedong@gmail.com
+github_username:  dantezhao
+email: zhaodedong91@gmail.com
 weibo_username:
 zhihu_username:
 linkedIn_username:
