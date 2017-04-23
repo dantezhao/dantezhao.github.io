@@ -77,7 +77,7 @@ tags: Java Scala Clojure
 
 FutureData和RealData都继承自IData接口。
 
-```
+```java
 /**
  * 数据的接口类
  * Created by Dante on 2017/4/8.
@@ -91,7 +91,7 @@ public interface IData {
 
 FutureData是直接通过Server返回给客户端的数据类，这里可以理解FutureData是对真实数据RealData的一个封装。
 
-```
+```java
 /**
  * Created by Dante on 2017/4/8.
  */
@@ -130,7 +130,7 @@ public class FutureData  implements IData {
 
 RealData是最终真实的数据，我们可以理解RealData的构造过程需要耗费十分多的时间。
 
-```
+```java
 /**
  * 真实的数据类，这是返回给用户的数据，数据的生成十分慢。
  * Created by Dante on 2017/4/8.
@@ -167,7 +167,7 @@ Server端，负责接收来自Client的数据请求，构造数据，并返回�
 
 **注意：** 这里会先返回一个代理的Future数据，但是在Client调用getResult()的时候，就会等待，直到真实的数据构造完成。
 
-```
+```java
 /**
  * Server端，负责接收来自Client的数据请求，构造数据，并返回
  * Created by Dante on 2017/4/8.
@@ -192,7 +192,7 @@ public class Server {
 
 代码里面注释比较详细，可以看注释理解。
 
-```
+```java
 /**
  * 主要负责调用server发起请求，并使用返回的数据
  * Created by Dante on 2017/4/8.
@@ -224,7 +224,7 @@ public class Client {
 
 concurrent包中的Future用起来比较方便，这里就不再做介绍，感兴趣的同学运行一下代码看看结果就清楚了。
 
-```
+```java
 /**
  * Created by Dante on 2017/4/8.
  */
@@ -288,7 +288,7 @@ public class FutureTest {
 - `.duration._`允许我们使用`1 second`, `200 milli`样的时间间隔字面值。
 - `Await.result`使用阻塞的方式等待Future任务完成, 若Future超时未完成则抛出TimeoutException异常。
 
-```
+```scala
 /**
   * Created by Dante on 2017/4/23.
   */
@@ -319,7 +319,7 @@ object FutureTest{
 有时你只需要监听Future的完成事件，对其进行响应，不是创建新的Future，而仅仅是产生副作用。
 通过onComplete,onSuccess,onFailure三个回调函数来异步执行Future任务，而后两者仅仅是第一项的特例。
 
-```
+```scala
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Random, Success}
@@ -365,7 +365,7 @@ Clojure是门挺有意思的语言，语法看起来比Scala恶心多了，不�
 - Clojure在语法层面上直接支持future，使用future关键字即可。
 - 使用deref或者@可以对future对象进行解引用。
 
-```Clojure
+```clojure
 ;; Clojure在语法层面上直接支持future，使用future关键字即可
 user=> (def f (future (Thread/sleep 10000) (println "done") 100))
 #'user/f
@@ -394,12 +394,6 @@ done
 - https://windor.gitbooks.io/beginners-guide-to-scala/content/chp8-welcome-to-the-future.html
 - https://www.kancloud.cn/digest/akka/119420
 - 《七周七并发模型》
-
-***
-作者：[**dantezhao**](http://dantezhao.com) |[简书](http://www.jianshu.com/u/2453cf172ab4) | [CSDN](http://blog.csdn.net/zhaodedong) | [GITHUB](https://github.com/dantezhao)
-
-个人主页：http://dantezhao.com
-*文章可以转载, 但必须以超链接形式标明文章原始出处和作者信息*
 
 
 ***
