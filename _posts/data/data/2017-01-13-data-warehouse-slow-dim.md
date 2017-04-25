@@ -8,8 +8,6 @@ tags:  Hadoop Hive
 * content
 {:toc}
 
-
-
 ## 0x00 前言
 
 本文会分享数据仓库中和缓慢变化维度相关的内容。在看之前建议回顾一下和维度建模相关的知识点，可参考这篇博客：[《漫谈数据仓库之维度建模》](http://www.jianshu.com/p/17baa9f96ca7)。
