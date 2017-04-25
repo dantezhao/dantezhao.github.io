@@ -2,7 +2,7 @@
 layout: post
 title:  "漫谈数据仓库之SCD（缓慢变化维度）"
 categories: 数据为王
-tags:  Hadoop Hive
+tags:  Hadoop Hive 数据仓库
 ---
 
 * content

@@ -2,7 +2,7 @@
 layout: post
 title:  "漫谈数据仓库之拉链表（原理、设计以及在Hive中的实现）"
 categories: 数据为王
-tags:  Hadoop Hive
+tags:  Hadoop Hive 数据仓库
 ---
 
 * content
