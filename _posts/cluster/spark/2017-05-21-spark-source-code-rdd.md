@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spark源码解析（一）：RDD"
+title:  "Spark源码解析：RDD"
 categories: 漫步云端
 tags: Spark
 ---
