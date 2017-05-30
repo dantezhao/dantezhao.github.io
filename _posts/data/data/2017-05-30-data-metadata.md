@@ -214,7 +214,14 @@ Google和LinkedIn都比较关注提高开发者的开发体验，就是我再前
 
 现在整理一些数据仓库的博客，也算是对之前工作的一些总结，纪念一下逗比的日子。
 
+为了证明自己的确学习了，附一张看论文时候的勾勾画画。
+
+![](http://dantezhao.oss-cn-shanghai.aliyuncs.com/data/metadata_9.jpg?x-oss-process=style/blog_dantezhao)
+
 ## 参考
 
 - https://research.google.com/pubs/pub45390.html
 - https://github.com/linkedin/WhereHows
+
+***
+2017-05-30 15:00:00 wxxy
